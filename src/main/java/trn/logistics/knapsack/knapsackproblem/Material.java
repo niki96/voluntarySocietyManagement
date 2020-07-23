@@ -1,6 +1,6 @@
-package knapsackproblem;
+package trn.logistics.knapsack.knapsackproblem;
 
-import Interfaces.KnapsackElement;
+import trn.logistics.knapsack.Interfaces.KnapsackElement;
 /**
  * A specific implementation for scouting material of the KnapsackElement
  * @author Niklas

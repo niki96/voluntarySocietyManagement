@@ -1,10 +1,10 @@
-package knapsackproblem;
+package trn.logistics.knapsack.knapsackproblem;
 
 import java.util.ArrayList;
 
-import Interfaces.Knapsack;
-import Interfaces.KnapsackElement;
-import Interfaces.MyGreedyAlgorithm;
+import trn.logistics.knapsack.Interfaces.Knapsack;
+import trn.logistics.knapsack.Interfaces.KnapsackElement;
+import trn.logistics.knapsack.Interfaces.MyGreedyAlgorithm;
 
 public class TheAlgorithm  implements MyGreedyAlgorithm{
 	

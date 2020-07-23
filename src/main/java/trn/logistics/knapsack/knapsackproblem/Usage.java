@@ -1,8 +1,8 @@
-package knapsackproblem;
+package trn.logistics.knapsack.knapsackproblem;
 
 import java.util.ArrayList;
 
-import Interfaces.KnapsackElement;
+import trn.logistics.knapsack.Interfaces.KnapsackElement;
 
 public class Usage {
 	public static void main (String[] args){

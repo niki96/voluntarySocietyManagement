@@ -1,9 +1,9 @@
-package knapsackproblem;
+package trn.logistics.knapsack.knapsackproblem;
 
 import java.util.ArrayList;
 
-import Interfaces.Knapsack;
-import Interfaces.KnapsackElement;
+import trn.logistics.knapsack.Interfaces.Knapsack;
+import trn.logistics.knapsack.Interfaces.KnapsackElement;
 
 public class DrivingVehicle implements Knapsack {
 	private int maxVolume;

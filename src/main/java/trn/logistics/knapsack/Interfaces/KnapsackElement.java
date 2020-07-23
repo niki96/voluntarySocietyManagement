@@ -1,4 +1,4 @@
-package Interfaces;
+package trn.logistics.knapsack.Interfaces;
 
 public interface KnapsackElement {
 	public String getName();

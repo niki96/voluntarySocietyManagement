@@ -1,4 +1,4 @@
-package Interfaces;
+package trn.logistics.knapsack.Interfaces;
 
 import java.util.ArrayList;
 
