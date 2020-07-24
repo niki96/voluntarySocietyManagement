@@ -10,6 +10,6 @@ public class VehicleService {
     private VehicleRepository vehicleRepository;
 
     public void putVehicle(Vehicle v1){
-
+        vehicleRepository.save(v1);
     }
 }
