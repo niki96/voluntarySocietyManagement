@@ -15,7 +15,7 @@ public class TheAlgorithm {
 			for (Vehicle vehicle : k){
 				//TODO: add Volume limit to the condition
 				if(vehicle.getActualWeight() + material.getWeight() <= vehicle.getMaxWeight()){
-					vehicle.addElementToKnapsack(material);
+					vehicle.getContainedElements().add(material);
 				}
 			}
 			
