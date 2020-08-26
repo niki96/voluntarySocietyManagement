@@ -20,7 +20,7 @@ class AppTest {
     void testSimple() {
         ArrayList<Material> materialList = new ArrayList<>();
         materialList.add(new Material(20, 5, "Zargeskiste", MaterialType.BOX));
-        Vehicle lkw = new Vehicle(1000, 3600, 0, 0);
+        Vehicle lkw = new Vehicle(1000, 3600);
 
         TheAlgorithm.knapsackDistribution(materialList, lkw);
         lkw.printLoadingList();
