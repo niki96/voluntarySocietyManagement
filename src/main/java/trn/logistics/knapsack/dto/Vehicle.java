@@ -21,16 +21,24 @@ public class Vehicle {
 
 	private final int maxVolume;
 	private final int maxWeight;
-	private final int actualVolume;
-	private final int actualWeight;
+
 	private final ArrayList<Material> containedElements;
-	
-	public Vehicle(int maxVolume, int maxWeight, int actualVolume, int actualWeight) {
+
+
+	public Vehicle(int maxVolume, int maxWeight) {
 		this.maxVolume = maxVolume;
 		this.maxWeight = maxWeight;
-		this.actualVolume = actualVolume;
-		this.actualWeight = actualWeight;
 		this.containedElements = new ArrayList<>();
+	}
+
+	public int getActualVolume()
+	{
+		return this.containedElements.stream().mapToInt(Material::getVolume).sum();
+	}
+
+	public int getActualWeight()
+	{
+		return this.containedElements.stream().mapToInt(Material::getWeight).sum();
 	}
 
 	public void addElementToKnapsack(Material kE) {

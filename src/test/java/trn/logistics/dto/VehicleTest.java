@@ -1,0 +1,45 @@
+package trn.logistics.dto;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import trn.logistics.knapsack.App;
+import trn.logistics.knapsack.dto.Material;
+import trn.logistics.knapsack.dto.Vehicle;
+
+
+@SpringBootTest(classes = App.class)
+public class VehicleTest {
+
+    private Vehicle vehicle;
+
+    @BeforeEach
+    void before()
+    {
+        this.vehicle = new Vehicle(0, 0);
+    }
+
+    @Test
+    void actualVolumeInit() {
+        assertEquals(0, this.vehicle.getActualVolume());
+    }
+
+    @Test
+    void actualWightInit() {
+        assertEquals(0, this.vehicle.getActualWeight());
+    }
+
+
+    @Test
+    void actualVolumeAfterMaterialAdded() {
+        this.vehicle.addElementToKnapsack(new Material(0, 5));
+        assertEquals(5, this.vehicle.getActualVolume());
+    }
+
+    @Test
+    void actualWeightAfterMaterialAdded() {
+        this.vehicle.addElementToKnapsack(new Material(5, 0));
+        assertEquals(5, this.vehicle.getActualWeight());
+    }
+}
