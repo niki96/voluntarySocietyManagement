@@ -17,11 +17,11 @@ public class VehicleService {
     }
 
     public Vehicle getVehicle(Long id) {
-        Optional<Vehicle> result = new Optional<Vehicle>(null);
+        Optional<Vehicle> result;
         if(id != null){
             result = vehicleRepository.findById(id);
+            return result.isPresent() ? result.get(): null;
         }
-
-        return result.isPresent() ? result.get() : null;
+        return null;
     }
 }
