@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.service.MaterialService;
 
+import java.util.Optional;
+
 import static trn.logistics.knapsack.rest.MaterialController.API;
 
 @Slf4j
@@ -18,16 +20,21 @@ public class MaterialController {
 
     @PutMapping
     public void addMaterial(@RequestBody Material material) {
-
+        materialService.putMaterial(material);
     }
 
     @GetMapping("/{name}")
     public Material getMaterial(@PathVariable("name") String name) {
         log.info("Get material {} ", name);
 
-        //materialService.getMaterial(name);
+        return materialService.getMaterial(name);
+    }
 
-        return null;
+    @GetMapping("/{id}")
+    public Material getMaterial(@PathVariable("id") Long id) {
+        log.info("Get material {} ", id);
+
+        return materialService.getMaterial(id);
     }
 
     @DeleteMapping("/{name}")

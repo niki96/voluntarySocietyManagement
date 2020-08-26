@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.Vehicle;
 import trn.logistics.knapsack.service.VehicleService;
 
+import java.util.Optional;
+
 import static trn.logistics.knapsack.rest.VehicleController.API;
 
 @Slf4j
@@ -17,6 +19,15 @@ public class VehicleController {
 
     @PutMapping
     public void putVehicle (@RequestBody Vehicle vehicle){
+        vehicleService.putVehicle(vehicle);
+    }
+
+    @GetMapping("/{id}")
+    public Vehicle getVehicle(@PathVariable("id") Long id ){
+        return vehicleService.getVehicle(id);
+    }
+    @PostMapping
+    public void postVehicle(@RequestBody Vehicle vehicle){
         vehicleService.putVehicle(vehicle);
     }
 }

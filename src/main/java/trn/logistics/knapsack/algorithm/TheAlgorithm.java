@@ -17,8 +17,7 @@ public class TheAlgorithm {
 		kEs.addAll(materialCollection);
 		Collections.sort(kEs);
 		//TODO Due to the type of the Element it could be possible that an element is not allowed to put on the Knapsack
-
-
+		
 		for(Material material : kEs ){
 			boolean isAdded = false;
 			for (Vehicle vehicle : k){
