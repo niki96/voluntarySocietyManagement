@@ -52,6 +52,10 @@ public class Vehicle implements Comparable<Vehicle>{
 			log.info("Position 1: " + k.toString());
 		}
 	}
+	public boolean allowedMaterialType(MaterialType mType){
+		//TODO implement decision pattern for all different Material Types
+		return true;
+	}
 	@Override
 	public int compareTo(Vehicle v ){
 		int res= 0;

@@ -4,23 +4,32 @@ import lombok.extern.slf4j.Slf4j;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.Vehicle;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class TheAlgorithm {
 
-	public static void knapsackDistribution(Collection<Material> kEs, Vehicle... k) {
+	public static void knapsackDistribution(Collection<Material> materialCollection, Vehicle... k) {
+		ArrayList<Material> kEs = new ArrayList<>();
+		kEs.addAll(materialCollection);
+		Collections.sort(kEs);
 		//TODO Due to the type of the Element it could be possible that an element is not allowed to put on the Knapsack
+
+
 		for(Material material : kEs ){
 			boolean isAdded = false;
 			for (Vehicle vehicle : k){
-
-				if(vehicle.getActualWeight() + material.getWeight() <= vehicle.getMaxWeight() && vehicle.getActualVolume()+material.getVolume()<= vehicle.getMaxVolume()){
-					vehicle.getContainedElements().add(material);
-					log.info("material is added to: " + vehicle.toString() + " | material: "+ material.toString());
-					isAdded = true;
-				}else{
-					isAdded = false;
+				if(vehicle.allowedMaterialType(material.getType())) {
+					if (vehicle.getActualWeight() + material.getWeight() <= vehicle.getMaxWeight() && vehicle.getActualVolume() + material.getVolume() <= vehicle.getMaxVolume()) {
+						vehicle.getContainedElements().add(material);
+						log.info("material is added to: " + vehicle.toString() + " | material: " + material.toString());
+						isAdded = true;
+					} else {
+						isAdded = false;
+					}
 				}
 			}
 			if(!isAdded){

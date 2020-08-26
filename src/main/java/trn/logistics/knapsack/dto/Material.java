@@ -34,6 +34,7 @@ public class Material implements Comparable<Material>{
 
 	@Override
 	public int compareTo(Material m ){
+
 		int res= 0;
 		if(m.getWeight() > this.getWeight()){
 			res = -1;
