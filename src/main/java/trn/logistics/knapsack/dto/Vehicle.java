@@ -1,6 +1,7 @@
 package trn.logistics.knapsack.dto;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +23,7 @@ public class Vehicle {
 	private final int maxVolume;
 	private final int maxWeight;
 
-	private final ArrayList<Material> containedElements;
+	private final Collection<Material> containedElements;
 
 
 	public Vehicle(int maxVolume, int maxWeight) {
