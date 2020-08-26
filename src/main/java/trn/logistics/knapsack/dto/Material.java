@@ -20,7 +20,7 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Entity
-public class Material {
+public class Material implements Comparable<Material>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -31,4 +31,9 @@ public class Material {
 
 	private String name;
 	private MaterialType type;
+
+	@Override
+	public int compareTo(Material m ){
+		return 0;
+	}
 }
