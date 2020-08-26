@@ -14,7 +14,7 @@ import javax.persistence.Id;
 @Getter
 @Slf4j
 @Entity
-public class Vehicle {
+public class Vehicle implements Comparable<Vehicle>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -51,6 +51,16 @@ public class Vehicle {
 		for(Material k : this.containedElements){
 			log.info("Position 1: " + k.toString());
 		}
+	}
+	@Override
+	public int compareTo(Vehicle v ){
+		int res= 0;
+		if(v.getMaxWeight() > this.getMaxWeight()){
+			res = -1;
+		}else if(v.getMaxWeight() < this.getMaxWeight()) {
+			res = 1;
+		}
+		return res;
 	}
 
 }
