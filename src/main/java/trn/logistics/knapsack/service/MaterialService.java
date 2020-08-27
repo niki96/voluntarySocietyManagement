@@ -21,14 +21,8 @@ public class MaterialService {
     }
 
     public Material getMaterial(Long id) {
-        Optional<Material> result;
         if(id != null) {
-
-
-            result = materialRepository.findById(id);
-            if (result.isPresent()) {
-                return result.get();
-            }
+            return materialRepository.findById(id).orElse(null);
         }
         return null;
     }
