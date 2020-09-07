@@ -5,7 +5,13 @@ import org.springframework.util.StringUtils;
 import trn.logistics.knapsack.database.MaterialRepository;
 import trn.logistics.knapsack.dto.Material;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 @Service
 public class MaterialService {
@@ -29,5 +35,12 @@ public class MaterialService {
 
     public void putMaterial(Material material) {
         materialRepository.save(material);
+    }
+
+    public ArrayList<Material> getMaterial() {
+        Stream<Material> result = StreamSupport.stream((materialRepository.findAll()).spliterator(), false);
+        return result.collect(Collectors.toCollection(ArrayList::new));
+
+
     }
 }

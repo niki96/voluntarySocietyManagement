@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.service.MaterialService;
 
-import java.util.Optional;
+import java.util.ArrayList;
 
 import static trn.logistics.knapsack.rest.MaterialController.API;
 
@@ -35,6 +35,10 @@ public class MaterialController {
         log.info("Get material {} ", id);
 
         return materialService.getMaterial(id);
+    }
+    @GetMapping
+    public ArrayList<Material> getAllMaterial(){
+        return materialService.getMaterial();
     }
 
     @DeleteMapping("/{name}")
