@@ -6,9 +6,6 @@ import trn.logistics.knapsack.database.MaterialRepository;
 import trn.logistics.knapsack.dto.Material;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
