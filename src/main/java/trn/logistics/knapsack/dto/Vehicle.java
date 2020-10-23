@@ -2,14 +2,12 @@ package trn.logistics.knapsack.dto;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Getter
 @Slf4j
@@ -23,7 +21,8 @@ public class Vehicle implements Comparable<Vehicle>{
 	private final int maxVolume;
 	private final int maxWeight;
 
-	private final Collection<Material> containedElements;
+	@OneToMany(targetEntity = Material.class, mappedBy = "vehicle", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+	private final List<Material> containedElements;
 
 
 	public Vehicle(int maxVolume, int maxWeight) {

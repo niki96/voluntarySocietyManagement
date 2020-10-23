@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * A specific implementation for scouting material of the KnapsackElement
@@ -31,6 +28,10 @@ public class Material implements Comparable<Material>{
 
 	private String name;
 	private MaterialType type;
+
+	@ManyToOne
+	@JoinColumn(name="vehicle_id")
+	private Vehicle vehicle;
 
 	@Override
 	public int compareTo(Material m ){
