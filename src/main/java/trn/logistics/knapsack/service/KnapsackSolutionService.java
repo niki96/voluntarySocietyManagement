@@ -22,6 +22,7 @@ public class KnapsackSolutionService {
         loadedVehicles = TheAlgorithm.knapsackDistribution(materials, vehicles);
 
         ks = new KnapsackSolution(loadedVehicles);
+
         knapsackSolutionRepository.save(ks);
 
         return ks;

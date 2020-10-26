@@ -26,6 +26,10 @@ public class Vehicle implements Comparable<Vehicle>{
 	@OneToMany(targetEntity = Material.class, mappedBy = "vehicle", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
 	private final List<Material> containedElements;
 
+//	@ManyToOne
+//	@JoinColumn(name = "knapsackSolution_id")
+//	private KnapsackSolution ks;
+
 
 	public Vehicle(int maxVolume, int maxWeight) {
 		this.maxVolume = maxVolume;
