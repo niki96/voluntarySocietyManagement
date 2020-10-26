@@ -34,7 +34,7 @@ public class MaterialService {
         materialRepository.save(material);
     }
 
-    public ArrayList<Material> getMaterial() {
+    public List<Material> getAllMaterials() {
         Stream<Material> result = StreamSupport.stream((materialRepository.findAll()).spliterator(), false);
         return result.collect(Collectors.toCollection(ArrayList::new));
 

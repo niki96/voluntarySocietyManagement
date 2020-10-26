@@ -29,7 +29,7 @@ public class VehicleService {
         return null;
     }
 
-    public ArrayList<Vehicle> getVehicle() {
+    public List<Vehicle> getAllVehicles() {
         Stream<Vehicle> result = StreamSupport.stream(vehicleRepository.findAll().spliterator(),false);
         return result.collect(Collectors.toCollection(ArrayList::new));
     }

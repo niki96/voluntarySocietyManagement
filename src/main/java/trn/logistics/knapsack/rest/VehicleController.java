@@ -28,7 +28,7 @@ public class VehicleController {
         return vehicleService.getVehicle(id);
     }
     @GetMapping
-    public ArrayList<Vehicle> getVehicle(){
+    public List<Vehicle> getVehicle(){
         return vehicleService.getVehicle();
     }
     @PostMapping
