@@ -12,8 +12,9 @@ import java.util.stream.Collectors;
 @Slf4j
 public class TheAlgorithm {
 
-	public static void knapsackDistribution(Collection<Material> materialCollection, Vehicle... k) {
+	public static void knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
 		ArrayList<Material> kEs = new ArrayList<>(materialCollection);
+		ArrayList<Vehicle> k = new ArrayList<>(vehicleCollection);
 		//kEs.addAll(materialCollection);
 		Collections.sort(kEs);
 		//TODO Due to the type of the Element it could be possible that an element is not allowed to put on the Knapsack
