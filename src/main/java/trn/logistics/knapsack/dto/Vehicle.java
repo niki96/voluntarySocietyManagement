@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import lombok.Getter;
+import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Getter
 @Slf4j
 @Entity
+@ToString
 public class Vehicle implements Comparable<Vehicle>{
 
 	@Id

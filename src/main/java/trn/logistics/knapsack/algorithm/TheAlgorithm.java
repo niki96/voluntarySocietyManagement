@@ -7,12 +7,13 @@ import trn.logistics.knapsack.dto.Vehicle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
 public class TheAlgorithm {
 
-	public static void knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
+	public static List<Vehicle> knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
 		ArrayList<Material> kEs = new ArrayList<>(materialCollection);
 		ArrayList<Vehicle> k = new ArrayList<>(vehicleCollection);
 		//kEs.addAll(materialCollection);
@@ -38,6 +39,7 @@ public class TheAlgorithm {
 			}
 			
 		}
+		return k;
 	}
 	
 }
