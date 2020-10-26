@@ -6,7 +6,6 @@ import trn.logistics.knapsack.dto.Vehicle;
 import trn.logistics.knapsack.service.VehicleService;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import static trn.logistics.knapsack.rest.VehicleController.API;
 
@@ -19,20 +18,22 @@ public class VehicleController {
     private VehicleService vehicleService;
 
     @PutMapping
-    public void putVehicle (@RequestBody Vehicle vehicle){
+    public void putVehicle(@RequestBody Vehicle vehicle) {
         vehicleService.putVehicle(vehicle);
     }
 
     @GetMapping("/{id}")
-    public Vehicle getVehicle(@PathVariable("id") Long id ){
+    public Vehicle getVehicle(@PathVariable("id") Long id) {
         return vehicleService.getVehicle(id);
     }
+
     @GetMapping
-    public ArrayList<Vehicle> getVehicle(){
+    public ArrayList<Vehicle> getVehicle() {
         return vehicleService.getVehicle();
     }
+
     @PostMapping
-    public void postVehicle(@RequestBody Vehicle vehicle){
+    public void postVehicle(@RequestBody Vehicle vehicle) {
         vehicleService.putVehicle(vehicle);
     }
 }
