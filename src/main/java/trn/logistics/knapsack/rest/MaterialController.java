@@ -36,9 +36,8 @@ public class MaterialController {
 
         return materialService.getMaterial(id);
     }
-
     @GetMapping
-    public ArrayList<Material> getAllMaterial() {
+    public List<Material> getAllMaterial(){
         return materialService.getMaterial();
     }
 
