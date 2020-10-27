@@ -5,17 +5,14 @@ import org.springframework.util.StringUtils;
 import trn.logistics.knapsack.database.MaterialRepository;
 import trn.logistics.knapsack.dto.Material;
 
-import java.util.ArrayList;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
+import java.util.List;
 
 @Service
 public class MaterialService {
 
     private MaterialRepository materialRepository;
 
-    public Material getMaterial(String name) {
+    public Material getMaterials(String name) {
         if (StringUtils.isEmpty(name)) {
             return null;
         }
@@ -23,20 +20,20 @@ public class MaterialService {
         return materialRepository.findByName(name);
     }
 
-    public Material getMaterial(Long id) {
-        if(id != null) {
+    public Material getMaterials(Long id) {
+        if (id != null) {
             return materialRepository.findById(id).orElse(null);
         }
         return null;
     }
 
-    public void putMaterial(Material material) {
+    public void putMaterials(Material material) {
         materialRepository.save(material);
     }
 
     public List<Material> getAllMaterials() {
-        Stream<Material> result = StreamSupport.stream((materialRepository.findAll()).spliterator(), false);
-        return result.collect(Collectors.toCollection(ArrayList::new));
+
+        return materialRepository.findAll();
 
 
     }

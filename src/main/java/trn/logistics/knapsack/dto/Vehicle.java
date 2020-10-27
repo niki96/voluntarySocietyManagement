@@ -24,10 +24,6 @@ public class Vehicle implements Comparable<Vehicle> {
     @OneToMany(targetEntity = Material.class, mappedBy = "vehicle", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private final List<Material> containedElements;
 
-//	@ManyToOne
-//	@JoinColumn(name = "knapsackSolution_id")
-//	private KnapsackSolution ks;
-
 
     public Vehicle(int maxVolume, int maxWeight) {
         this.maxVolume = maxVolume;
@@ -62,6 +58,7 @@ public class Vehicle implements Comparable<Vehicle> {
     @Override
     public int compareTo(Vehicle v) {
         int res = 0;
+        //TODO implement better comparison mechanism
         if (v.getMaxWeight() > this.getMaxWeight()) {
             res = -1;
         } else if (v.getMaxWeight() < this.getMaxWeight()) {

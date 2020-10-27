@@ -12,20 +12,19 @@ import java.util.List;
 @Service
 public class KnapsackSolutionService {
     private KnapsackSolutionRepository knapsackSolutionRepository;
+    private TheAlgorithm algorithm;
 
-    public KnapsackSolution createKnapsackSolution(List<Vehicle> vehicles, List<Material> materials) {
-        KnapsackSolution ks;
+    public KnapsackSolution createKnapsackSolutions(List<Vehicle> vehicles, List<Material> materials) {
         List<Vehicle> loadedVehicles;
-        loadedVehicles = TheAlgorithm.knapsackDistribution(materials, vehicles);
+        loadedVehicles = algorithm.knapsackDistribution(materials, vehicles);
 
-        ks = new KnapsackSolution(loadedVehicles);
-
+        KnapsackSolution ks = new KnapsackSolution(loadedVehicles);
         knapsackSolutionRepository.save(ks);
 
         return ks;
     }
 
-    public KnapsackSolution loadKnapsacksolution(Long id) {
+    public KnapsackSolution loadKnapsackSolutions(Long id) {
         if (id != null) {
             return knapsackSolutionRepository.findById(id).orElse(null);
         }

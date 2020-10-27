@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.service.MaterialService;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import static trn.logistics.knapsack.rest.MaterialController.API;
 
@@ -19,30 +19,31 @@ public class MaterialController {
     private MaterialService materialService;
 
     @PutMapping
-    public void addMaterial(@RequestBody Material material) {
-        materialService.putMaterial(material);
+    public void addMaterials(@RequestBody Material material) {
+        materialService.putMaterials(material);
     }
 
     @GetMapping("/{name}")
-    public Material getMaterial(@PathVariable("name") String name) {
+    public Material getMaterials(@PathVariable("name") String name) {
         log.info("Get material {} ", name);
 
-        return materialService.getMaterial(name);
+        return materialService.getMaterials(name);
     }
 
     @GetMapping("/{id}")
-    public Material getMaterial(@PathVariable("id") Long id) {
+    public Material getMaterials(@PathVariable("id") Long id) {
         log.info("Get material {} ", id);
 
-        return materialService.getMaterial(id);
+        return materialService.getMaterials(id);
     }
+
     @GetMapping
-    public List<Material> getAllMaterial(){
-        return materialService.getMaterial();
+    public List<Material> getAllMaterials() {
+        return materialService.getAllMaterials();
     }
 
     @DeleteMapping("/{name}")
-    public void deleteMaterial(@PathVariable("name") String name) {
+    public void deleteMaterials(@PathVariable("name") String name) {
         log.info("Deleting material {}", name);
     }
 
