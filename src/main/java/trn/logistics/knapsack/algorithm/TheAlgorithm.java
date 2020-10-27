@@ -15,7 +15,6 @@ public class TheAlgorithm {
     public List<Vehicle> knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
         ArrayList<Material> kEs = new ArrayList<>(materialCollection);
         ArrayList<Vehicle> k = new ArrayList<>(vehicleCollection);
-        //kEs.addAll(materialCollection);
         Collections.sort(kEs);
         //TODO Due to the type of the Element it could be possible that an element is not allowed to put on the Knapsack
 
@@ -24,7 +23,7 @@ public class TheAlgorithm {
             for (Vehicle vehicle : k) {
                 if (vehicle.allowedMaterialType(material.getType()) && checkVolumeLimitForMaterial(vehicle, material) && checkWeightLimitForMaterial(vehicle, material)) {
                     vehicle.getContainedElements().add(material);
-                    log.info("material is added to: " + vehicle.toString() + " | material: " + material.toString());
+                    log.info("material is added to: {} | material: {}", vehicle.toString(), material.toString());
                     isAdded = true;
                 } else {
                     isAdded = false;
