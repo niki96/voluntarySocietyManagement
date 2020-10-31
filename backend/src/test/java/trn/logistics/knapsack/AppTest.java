@@ -23,7 +23,8 @@ class AppTest {
         Vehicle lkw = new Vehicle(1000, 3600);
         ArrayList<Vehicle> vehicleList = new ArrayList<>();
         vehicleList.add(lkw);
-        TheAlgorithm.knapsackDistribution(materialList, vehicleList);
+        TheAlgorithm algorithm = new TheAlgorithm();
+        algorithm.knapsackDistribution(materialList, vehicleList);
         lkw.printLoadingList();
     }
 }

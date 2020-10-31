@@ -17,3 +17,6 @@ mvnw
 mvnw.cmd
 .idea
 *.iml
+
+node/
+node_modules/
