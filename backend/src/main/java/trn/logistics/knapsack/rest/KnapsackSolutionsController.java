@@ -1,6 +1,7 @@
 package trn.logistics.knapsack.rest;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.KnapsackSolution;
 import trn.logistics.knapsack.dto.Material;
@@ -19,6 +20,7 @@ import static trn.logistics.knapsack.rest.KnapsackSolutionsController.API;
 @RequestMapping(API)
 public class KnapsackSolutionsController {
     public static final String API = "/api/v1/knapsackSolution";
+    @Autowired
     private KnapsackSolutionService knapsackSolutionService;
 
 

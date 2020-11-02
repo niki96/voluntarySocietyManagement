@@ -1,6 +1,7 @@
 package trn.logistics.knapsack.rest;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.Vehicle;
 import trn.logistics.knapsack.service.VehicleService;
@@ -15,6 +16,7 @@ import static trn.logistics.knapsack.rest.VehiclesController.API;
 public class VehiclesController {
 
     public static final String API = "/api/v1/vehicle";
+    @Autowired
     private VehicleService vehicleService;
 
     @PutMapping

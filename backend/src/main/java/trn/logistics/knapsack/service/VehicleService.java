@@ -1,5 +1,6 @@
 package trn.logistics.knapsack.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import trn.logistics.knapsack.database.VehicleRepository;
 import trn.logistics.knapsack.dto.Vehicle;
@@ -7,8 +8,9 @@ import trn.logistics.knapsack.dto.Vehicle;
 import java.util.List;
 
 @Service
-public class VehicleService {
 
+public class VehicleService {
+    @Autowired
     private VehicleRepository vehicleRepository;
 
     public void putVehicles(Vehicle v1) {

@@ -1,5 +1,6 @@
 package trn.logistics.knapsack.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import trn.logistics.knapsack.algorithm.TheAlgorithm;
 import trn.logistics.knapsack.database.KnapsackSolutionRepository;
@@ -11,7 +12,9 @@ import java.util.List;
 
 @Service
 public class KnapsackSolutionService {
+    @Autowired
     private KnapsackSolutionRepository knapsackSolutionRepository;
+    @Autowired
     private TheAlgorithm algorithm;
 
     public KnapsackSolution createKnapsackSolutions(List<Vehicle> vehicles, List<Material> materials) {
