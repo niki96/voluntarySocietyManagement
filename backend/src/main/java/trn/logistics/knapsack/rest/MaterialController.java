@@ -19,7 +19,14 @@ public class MaterialController {
     @Autowired
     private MaterialService materialService;
 
+    @CrossOrigin
     @PutMapping
+    public void updateMaterials(@RequestBody Material material) {
+        materialService.putMaterials(material);
+    }
+
+    @CrossOrigin
+    @PostMapping(consumes = "application/json", produces = "application/json")
     public void addMaterials(@RequestBody Material material) {
         materialService.putMaterials(material);
     }
@@ -38,6 +45,7 @@ public class MaterialController {
         return materialService.getMaterials(id);
     }
 
+    @CrossOrigin
     @GetMapping
     public List<Material> getAllMaterials() {
         return materialService.getAllMaterials();

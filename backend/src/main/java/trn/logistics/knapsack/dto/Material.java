@@ -1,8 +1,9 @@
 package trn.logistics.knapsack.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
@@ -14,27 +15,29 @@ import javax.persistence.*;
  */
 @Getter
 @ToString
+@NoArgsConstructor
 @AllArgsConstructor
-@RequiredArgsConstructor
 @Entity
-public class Material implements Comparable<Material>{
+public class Material implements Comparable<Material> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE)
 	private Long id;
 
-	private final int weight;
-	private final int volume;
+	private int weight;
+	private int volume;
 
 	private String name;
 	private MaterialType type;
 
+	@JsonIgnore
 	@ManyToOne
-	@JoinColumn(name="vehicle_id")
+	@JoinColumn(name = "vehicle_id")
 	private Vehicle vehicle;
 
+
 	@Override
-	public int compareTo(Material m ){
+	public int compareTo(Material m) {
 
 		int res = 0;
 		//TODO implement better comparison mechanism

@@ -32,6 +32,10 @@ public class MaterialService {
         materialRepository.save(material);
     }
 
+    public void createMaterials(Material material) {
+        materialRepository.save(material);
+    }
+
     public List<Material> getAllMaterials() {
 
         return materialRepository.findAll();

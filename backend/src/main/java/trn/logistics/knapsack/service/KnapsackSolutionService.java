@@ -14,7 +14,7 @@ import java.util.List;
 public class KnapsackSolutionService {
     @Autowired
     private KnapsackSolutionRepository knapsackSolutionRepository;
-    @Autowired
+
     private TheAlgorithm algorithm;
 
     public KnapsackSolution createKnapsackSolutions(List<Vehicle> vehicles, List<Material> materials) {
