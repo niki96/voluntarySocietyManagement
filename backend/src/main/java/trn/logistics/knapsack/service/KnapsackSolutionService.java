@@ -21,7 +21,8 @@ public class KnapsackSolutionService {
         List<Vehicle> loadedVehicles;
         loadedVehicles = algorithm.knapsackDistribution(materials, vehicles);
 
-        KnapsackSolution ks = new KnapsackSolution(loadedVehicles);
+        KnapsackSolution ks = new KnapsackSolution();
+        ks.setSelectedVehicles(loadedVehicles);
         knapsackSolutionRepository.save(ks);
 
         return ks;
