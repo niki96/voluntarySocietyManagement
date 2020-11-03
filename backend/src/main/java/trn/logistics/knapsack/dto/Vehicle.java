@@ -1,6 +1,8 @@
 package trn.logistics.knapsack.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 import lombok.extern.slf4j.Slf4j;
 
@@ -12,17 +14,19 @@ import java.util.List;
 @Slf4j
 @Entity
 @ToString
+@AllArgsConstructor
+@NoArgsConstructor
 public class Vehicle implements Comparable<Vehicle> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    private final int maxVolume;
-    private final int maxWeight;
+    private int maxVolume;
+    private int maxWeight;
 
     @OneToMany(targetEntity = Material.class, mappedBy = "vehicle", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    private final List<Material> containedElements;
+    private List<Material> containedElements;
 
 
     public Vehicle(int maxVolume, int maxWeight) {
