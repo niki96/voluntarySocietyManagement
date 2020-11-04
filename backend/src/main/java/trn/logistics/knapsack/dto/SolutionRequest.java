@@ -13,7 +13,7 @@ public class SolutionRequest {
 
     private Long id;
 
-    private Collection<Material> materialCollection;
-    private Collection<Vehicle> vehicleCollection;
+    private Collection<Long> materialIdCollection;
+    private Collection<Long> vehicleIdCollection;
 
 }

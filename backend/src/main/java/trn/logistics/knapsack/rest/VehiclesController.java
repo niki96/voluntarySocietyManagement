@@ -20,6 +20,7 @@ public class VehiclesController {
     private VehicleService vehicleService;
 
     @PutMapping
+    @CrossOrigin
     public void putVehicles(@RequestBody Vehicle vehicle) {
         vehicleService.putVehicles(vehicle);
     }
@@ -30,11 +31,13 @@ public class VehiclesController {
     }
 
     @GetMapping
+    @CrossOrigin
     public List<Vehicle> getVehicles() {
         return vehicleService.getVehicles();
     }
 
     @PostMapping
+    @CrossOrigin
     public void postVehicles(@RequestBody Vehicle vehicle) {
         vehicleService.putVehicles(vehicle);
     }

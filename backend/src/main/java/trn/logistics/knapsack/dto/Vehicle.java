@@ -22,6 +22,7 @@ public class Vehicle implements Comparable<Vehicle> {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
+    private String name;
     private int maxVolume;
     private int maxWeight;
 

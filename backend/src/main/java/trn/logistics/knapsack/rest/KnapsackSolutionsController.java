@@ -4,9 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.KnapsackSolution;
-import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.SolutionRequest;
-import trn.logistics.knapsack.dto.Vehicle;
 import trn.logistics.knapsack.service.KnapsackSolutionService;
 
 import java.util.ArrayList;
@@ -27,8 +25,8 @@ public class KnapsackSolutionsController {
     @PostMapping
     public Long createKnapsackSolutions(@RequestBody SolutionRequest requestObject) {
         //TODO exception handling for optional is null
-        List<Material> materialList = new ArrayList<>(requestObject.getMaterialCollection());
-        List<Vehicle> vehicleList = new ArrayList<>(requestObject.getVehicleCollection());
+        List<Long> materialList = new ArrayList<>(requestObject.getMaterialIdCollection());
+        List<Long> vehicleList = new ArrayList<>(requestObject.getVehicleIdCollection());
         KnapsackSolution result = knapsackSolutionService.createKnapsackSolutions(vehicleList, materialList);
 
         return result.getId();
