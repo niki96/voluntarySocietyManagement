@@ -1,21 +1,18 @@
 <template>
   <div >
     <b-card>
-      <materialForm></materialForm>
+      <b-button class="btn btn-success" @click="createLoading()">
+      <font-awesome-icon icon="plus-square"
+    /> </b-button>
       <b-table
         :sticky-header="stickyHeader"
         :fields="fields"
-        :items="materials"
+        :items="loadings"
         :busy="isBusy"
         class="mt-3"
         hover
         outlined
       >
-        <template #cell(edit)="data">
-          <b-button @click="updateMaterial(data.item)">
-            <font-awesome-icon icon="edit" />
-          </b-button>
-        </template>
         <template #table-busy>
           <div class="text-center text-danger my-2">
             <b-spinner class="align-middle"></b-spinner>
@@ -31,50 +28,46 @@
 </template>
 
 <script>
-import materialForm from "./materialForm.vue";
+
 export default {
   components: {
-    materialForm: materialForm,
+
   },
   data: function () {
     return {
-      materials: [],
+      loadings: [],
       isBusy: false,
       fields: [
         { key: "id", label: "ID" },
         { key: "name", label: "Name" },
-        { key: "weight", label: "Gewicht (kg)" },
-        { key: "volume", label: "Volumen (m^3)" },
-        { key: "edit", label: "" },
+        
       ],
       stickyHeader: true,
       url: "http://localhost:8080/api/v1/",
     };
   },
   methods: {
-    loadMaterials() {
+    loadLoadings() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "material", {
+        .get(this.url + "knapsackSolution", {
           responseType: "json",
         })
         .then((response) => {
-          this.materials = response.data;
+          this.loadings = response.data;
           this.isBusy = false;
         });
     },
     reload() {
-      this.materials = [];
-      this.loadMaterials();
+      this.loadings = [];
+      this.loadLoadings();
     },
-    updateMaterial(material) {
-      console.log(material);
-    },
+    createLoading(){
+      this.$router.push({name:'loadingForm'})
+    }
   },
   created: function () {
-    this.loadMaterials();
+    this.loadLoadings();
   },
 };
 </script>
-
-

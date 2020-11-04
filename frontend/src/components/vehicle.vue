@@ -1,18 +1,18 @@
 <template>
   <div >
     <b-card>
-      <materialForm></materialForm>
+      <vehicleForm></vehicleForm>
       <b-table
         :sticky-header="stickyHeader"
         :fields="fields"
-        :items="materials"
+        :items="vehicles"
         :busy="isBusy"
         class="mt-3"
         hover
         outlined
       >
         <template #cell(edit)="data">
-          <b-button @click="updateMaterial(data.item)">
+          <b-button @click="updateVehicle(data.item)">
             <font-awesome-icon icon="edit" />
           </b-button>
         </template>
@@ -31,20 +31,20 @@
 </template>
 
 <script>
-import materialForm from "./materialForm.vue";
+import  vehicleForm from "./vehicleForm";
 export default {
   components: {
-    materialForm: materialForm,
+    vehicleForm:vehicleForm
   },
   data: function () {
     return {
-      materials: [],
+      vehicles: [],
       isBusy: false,
       fields: [
         { key: "id", label: "ID" },
         { key: "name", label: "Name" },
-        { key: "weight", label: "Gewicht (kg)" },
-        { key: "volume", label: "Volumen (m^3)" },
+        { key: "maxWeight", label: "Zuladungsgewicht (kg)" },
+        { key: "maxVolume", label: "Zuladungsvolumen (m^3)" },
         { key: "edit", label: "" },
       ],
       stickyHeader: true,
@@ -52,29 +52,27 @@ export default {
     };
   },
   methods: {
-    loadMaterials() {
+    loadVehicles() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "material", {
+        .get(this.url + "vehicle", {
           responseType: "json",
         })
         .then((response) => {
-          this.materials = response.data;
+          this.vehicles = response.data;
           this.isBusy = false;
         });
     },
     reload() {
       this.materials = [];
-      this.loadMaterials();
+      this.loadVehicles();
     },
-    updateMaterial(material) {
-      console.log(material);
+    updateVehicle(vehicle) {
+      console.log(vehicle);
     },
   },
   created: function () {
-    this.loadMaterials();
+    this.loadVehicles();
   },
 };
 </script>
-
-

@@ -1,33 +1,32 @@
 <template>
   <div>
-    <b-button class="btn btn-success" @click="modalShow = !modalShow">
+    <b-button class="btn btn-success" @click="modalVehicleShow = !modalVehicleShow">
       <font-awesome-icon icon="plus-square"
     /> </b-button>
     <!-- Modal Component -->
-    <b-modal id="modal1" v-model="modalShow" @ok="saveMaterial">
-      <div class="text-left" slot="modal-header">Add Material</div>
-      <b-form id="materialForm" ref="materialForm">
+    <b-modal id="modal2" v-model="modalVehicleShow" @ok="saveVehicle">
+      <div class="text-left" slot="modal-header">Add Vehicle</div>
+      <b-form id="VehicleForm" ref="vehicleForm">
         <b-form-group
           id="input-group-1"
-          label="Material Name"
+          label="Fahrzeug Name"
           label-for="input-1"
         >
           <b-form-input
             id="input-1"
-            v-model="material.name"
-            type="number"
+            v-model="vehicle.name"
             required
             placeholder="Enter name"
           ></b-form-input>
         </b-form-group>
         <b-form-group
           id="input-group-2"
-          label="Volumen (m^3)"
+          label="Maximales Volumen (m^3)"
           label-for="input-2"
         >
           <b-form-input
             id="input-2"
-            v-model="material.volume"
+            v-model="vehicle.volume"
             type="number"
             required
             placeholder="Enter volume"
@@ -35,12 +34,13 @@
         </b-form-group>
         <b-form-group
           id="input-group-3"
-          label="Gewicht (kg)"
+          label="Maximale Zuladung (kg)"
           label-for="input-3"
         >
           <b-form-input
             id="input-3"
-            v-model="material.weight"
+            v-model="vehicle.weight"
+            type="number"
             required
             placeholder="Enter weight"
           ></b-form-input>
@@ -49,33 +49,33 @@
       <div class="text-left">{{responsemsg}}</div>
       <div slot="modal-footer" class="">
         
-        <button class="btn btn-success" @click="saveMaterial()">Save</button>
+        <button class="btn btn-success" @click="saveVehicle()">Save</button>
       </div>
     </b-modal>
   </div>
 </template>
 <script>
 export default {
-  name: "materialForm",
+  name: "vehicleForm",
   data: function () {
     return {
     responsemsg:"",
-      modalShow: false,
-      material: {
+      modalVehicleShow: false,
+      vehicle: {
         name: "",
-        volume: 0,
-        weight: 0,
+        maVolume: 0,
+        maxWeight: 0,
       },
     };
   },
   methods: {
-    saveMaterial() {
+    saveVehicle() {
        // this.$refs.materialForm.submit();
       console.log("Save Material Input");
       this.axios
         .post(
-          "http://localhost:8080/api/v1/material",
-          JSON.stringify(this.material),
+          "http://localhost:8080/api/v1/vehicle",
+          JSON.stringify(this.vehicle),
           {
             headers: {
               accept: "application/json",
