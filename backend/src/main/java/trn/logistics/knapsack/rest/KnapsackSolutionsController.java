@@ -17,12 +17,13 @@ import static trn.logistics.knapsack.rest.KnapsackSolutionsController.API;
 @RestController
 @RequestMapping(API)
 public class KnapsackSolutionsController {
-    public static final String API = "/api/v1/knapsackSolution";
+    public static final String API = "/api/v1/knapsackSolutions";
     @Autowired
     private KnapsackSolutionService knapsackSolutionService;
 
 
     @PostMapping
+    @CrossOrigin
     public Long createKnapsackSolutions(@RequestBody SolutionRequest requestObject) {
         //TODO Handel with Jakson that Attributes of requestObject are Not null
         List<Long> materialList = new ArrayList<>(requestObject.getMaterialIdCollection());
@@ -33,6 +34,7 @@ public class KnapsackSolutionsController {
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin
     public KnapsackSolution getKnapsackSolutions(@PathVariable("id") Long id) {
         return knapsackSolutionService.loadKnapsackSolutions(id);
     }
