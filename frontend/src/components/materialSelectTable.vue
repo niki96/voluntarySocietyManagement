@@ -9,7 +9,7 @@
             :indeterminate="indeterminateMaterial"
             @change="toggleAll"
           >
-            {{ allMaterialsSelected ? "Un-select All" : "Select All" }}
+            {{ allMaterialsSelected ? "Alle nicht auswählen" : "Alle auswählen" }}
           </b-form-checkbox>
         </template>
       </b-form-group>
@@ -33,7 +33,7 @@
         <template #table-busy>
           <div class="text-center text-danger my-2">
             <b-spinner class="align-middle"></b-spinner>
-            <strong>Loading...</strong>
+            <strong>Lade...</strong>
           </div>
         </template>
       </b-table>
@@ -67,7 +67,7 @@ export default {
     },
     loadMaterials() {
       this.$http
-        .get("http://localhost:8080/api/v1/material", {
+        .get("http://localhost:8080/api/v1/materials", {
           responseType: "json",
         })
         .then((response) => {

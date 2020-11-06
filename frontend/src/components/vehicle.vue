@@ -19,7 +19,7 @@
         <template #table-busy>
           <div class="text-center text-danger my-2">
             <b-spinner class="align-middle"></b-spinner>
-            <strong>Loading...</strong>
+            <strong>Lade...</strong>
           </div>
         </template>
       </b-table>
@@ -55,7 +55,7 @@ export default {
     loadVehicles() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "vehicle", {
+        .get(this.url + "vehicles", {
           responseType: "json",
         })
         .then((response) => {

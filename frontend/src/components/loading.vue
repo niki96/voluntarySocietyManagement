@@ -16,7 +16,7 @@
         <template #table-busy>
           <div class="text-center text-danger my-2">
             <b-spinner class="align-middle"></b-spinner>
-            <strong>Loading...</strong>
+            <strong>Lade...</strong>
           </div>
         </template>
       </b-table>
@@ -50,7 +50,7 @@ export default {
     loadLoadings() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "knapsackSolution", {
+        .get(this.url + "knapsackSolutions", {
           responseType: "json",
         })
         .then((response) => {

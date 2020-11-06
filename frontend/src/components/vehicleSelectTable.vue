@@ -68,7 +68,7 @@ export default {
     loadVehicles() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "vehicle", {
+        .get(this.url + "vehicles", {
           responseType: "json",
         })
         .then((response) => {

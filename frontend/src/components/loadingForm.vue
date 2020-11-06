@@ -1,5 +1,13 @@
 <template>
   <div>
+      <b-card>
+         <b-input
+            id="input-1"
+            v-model="name"
+            required
+            placeholder="Name eingeben"
+          ></b-input>
+      </b-card>
       <vehicleSelectTable @selectVehicle="handleVehicleSelectionEvent"></vehicleSelectTable>
       <materialSelectTable @selectMaterial="handleMaterialSelectionEvent"></materialSelectTable>
   </div>
@@ -16,6 +24,7 @@ export default {
   },
   data: function () {
     return {
+      name:"",
       materialSelection: [],
       vehicleSelection:[]
     };
