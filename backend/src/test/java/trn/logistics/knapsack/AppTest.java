@@ -8,6 +8,7 @@ import trn.logistics.knapsack.dto.MaterialType;
 import trn.logistics.knapsack.dto.Vehicle;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @SpringBootTest
 class AppTest {

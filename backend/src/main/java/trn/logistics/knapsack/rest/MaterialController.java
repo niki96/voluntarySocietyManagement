@@ -23,27 +23,27 @@ public class MaterialController {
     @CrossOrigin
     @PutMapping
     public void updateMaterials(@RequestBody Material material) {
-        materialService.putMaterials(material);
+        materialService.addMaterial(material);
     }
 
     @CrossOrigin
     @PostMapping(consumes = "application/json", produces = "application/json")
     public void addMaterials(@RequestBody Material material) {
-        materialService.putMaterials(material);
+        materialService.addMaterial(material);
     }
 
     @GetMapping("/{name}")
     public Material getMaterial(@PathVariable("name") String name) {
         log.info("Get material {} ", name);
 
-        return materialService.getMaterials(name);
+        return materialService.getMaterial(name);
     }
 
     @GetMapping("/{id}")
     public Material getMaterial(@PathVariable("id") Long id) {
         log.info("Get material {} ", id);
 
-        return materialService.getMaterials(id);
+        return materialService.getMaterial(id);
     }
 
     @CrossOrigin
@@ -54,6 +54,8 @@ public class MaterialController {
 
     @DeleteMapping("/{name}")
     public void deleteMaterial(@PathVariable("name") String name) {
+
+        //TODO implement DELETE
         log.info("Deleting material {}", name);
     }
 

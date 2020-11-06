@@ -21,7 +21,7 @@ public class KnapsackSolutionService {
     private VehicleRepository vehicleRepository;
     @Autowired
     private MaterialRepository materialRepository;
-
+    @Autowired
     private TheAlgorithm algorithm;
 
     public KnapsackSolution createKnapsackSolutions(List<Long> vehicleIds, List<Long> materialIds, String name) {

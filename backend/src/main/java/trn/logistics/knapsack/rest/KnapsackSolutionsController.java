@@ -24,7 +24,7 @@ public class KnapsackSolutionsController {
 
     @PostMapping
     public Long createKnapsackSolutions(@RequestBody SolutionRequest requestObject) {
-        //TODO exception handling for optional is null
+        //TODO Handel with Jakson that Attributes of requestObject are Not null
         List<Long> materialList = new ArrayList<>(requestObject.getMaterialIdCollection());
         List<Long> vehicleList = new ArrayList<>(requestObject.getVehicleIdCollection());
         KnapsackSolution result = knapsackSolutionService.createKnapsackSolutions(vehicleList, materialList, requestObject.getName());

@@ -23,12 +23,12 @@ public class VehiclesController {
     @PutMapping
     @CrossOrigin
     public void putVehicle(@RequestBody Vehicle vehicle) {
-        vehicleService.putVehicles(vehicle);
+        vehicleService.addVehicle(vehicle);
     }
 
     @GetMapping("/{id}")
     public Vehicle getVehicle(@PathVariable("id") Long id) {
-        return vehicleService.getVehicles(id);
+        return vehicleService.getVehicle(id);
     }
 
     @GetMapping
@@ -40,6 +40,6 @@ public class VehiclesController {
     @PostMapping
     @CrossOrigin
     public void postVehicle(@RequestBody Vehicle vehicle) {
-        vehicleService.putVehicles(vehicle);
+        vehicleService.addVehicle(vehicle);
     }
 }
