@@ -26,7 +26,7 @@
         >
           <b-form-input
             id="input-2"
-            v-model="vehicle.volume"
+            v-model="vehicle.maxVolume"
             type="number"
             required
             placeholder="Enter volume"
@@ -39,7 +39,7 @@
         >
           <b-form-input
             id="input-3"
-            v-model="vehicle.weight"
+            v-model="vehicle.maxWeight"
             type="number"
             required
             placeholder="Enter weight"
@@ -63,7 +63,7 @@ export default {
       modalVehicleShow: false,
       vehicle: {
         name: "",
-        maVolume: 0,
+        maxVolume: 0,
         maxWeight: 0,
       },
     };

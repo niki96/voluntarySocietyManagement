@@ -15,7 +15,7 @@
           <b-form-input
             id="input-1"
             v-model="material.name"
-            type="number"
+            
             required
             placeholder="Enter name"
           ></b-form-input>
@@ -41,6 +41,7 @@
           <b-form-input
             id="input-3"
             v-model="material.weight"
+            type="number"
             required
             placeholder="Enter weight"
           ></b-form-input>
