@@ -27,7 +27,7 @@ public class KnapsackSolutionsController {
         //TODO exception handling for optional is null
         List<Long> materialList = new ArrayList<>(requestObject.getMaterialIdCollection());
         List<Long> vehicleList = new ArrayList<>(requestObject.getVehicleIdCollection());
-        KnapsackSolution result = knapsackSolutionService.createKnapsackSolutions(vehicleList, materialList);
+        KnapsackSolution result = knapsackSolutionService.createKnapsackSolutions(vehicleList, materialList, requestObject.getName());
 
         return result.getId();
     }

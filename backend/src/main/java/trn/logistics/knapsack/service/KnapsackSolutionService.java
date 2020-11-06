@@ -6,6 +6,7 @@ import trn.logistics.knapsack.algorithm.TheAlgorithm;
 import trn.logistics.knapsack.database.KnapsackSolutionRepository;
 import trn.logistics.knapsack.database.MaterialRepository;
 import trn.logistics.knapsack.database.VehicleRepository;
+import trn.logistics.knapsack.dto.AlgorithmPair;
 import trn.logistics.knapsack.dto.KnapsackSolution;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.Vehicle;
@@ -23,14 +24,16 @@ public class KnapsackSolutionService {
 
     private TheAlgorithm algorithm;
 
-    public KnapsackSolution createKnapsackSolutions(List<Long> vehicleIds, List<Long> materialIds) {
+    public KnapsackSolution createKnapsackSolutions(List<Long> vehicleIds, List<Long> materialIds, String name) {
 
         List<Vehicle> vehicles = vehicleRepository.findAllById(vehicleIds);
         List<Material> materials = materialRepository.findAllById(materialIds);
-        List<Vehicle> loadedVehicles;
 
         KnapsackSolution ks = new KnapsackSolution();
-        ks.setSelectedVehicles(loadedVehicles);
+        AlgorithmPair pair = algorithm.knapsackDistribution(materials, vehicles);
+        ks.setSelectedVehicles(pair.getVehiclelist());
+        ks.setNotLoadedMaterials(pair.getMateriallist());
+        ks.setName(name);
         knapsackSolutionRepository.save(ks);
 
         return ks;

@@ -16,4 +16,6 @@ public class SolutionRequest {
     private Collection<Long> materialIdCollection;
     private Collection<Long> vehicleIdCollection;
 
+    private String name;
+
 }

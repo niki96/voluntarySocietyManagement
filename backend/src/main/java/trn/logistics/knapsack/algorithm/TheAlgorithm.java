@@ -1,6 +1,7 @@
 package trn.logistics.knapsack.algorithm;
 
 import lombok.extern.slf4j.Slf4j;
+import trn.logistics.knapsack.dto.AlgorithmPair;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.Vehicle;
 
@@ -12,9 +13,10 @@ import java.util.List;
 @Slf4j
 public class TheAlgorithm {
 
-    public List<Vehicle> knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
+    public AlgorithmPair knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
         List<Material> kEs = new ArrayList<>(materialCollection);
         List<Vehicle> k = new ArrayList<>(vehicleCollection);
+        List<Material> notLoadedMaterials = new ArrayList<>();
         Collections.sort(kEs);
         //TODO Due to the type of the Element it could be possible that an element is not allowed to put on the Knapsack
 
@@ -25,6 +27,7 @@ public class TheAlgorithm {
                     vehicle.getContainedElements().add(material);
                     log.info("material is added to: {} | material: {}", vehicle.toString(), material.toString());
                     isAdded = true;
+                    break;
                 } else {
                     isAdded = false;
                 }
@@ -32,11 +35,12 @@ public class TheAlgorithm {
             }
             if (!isAdded) {
                 // mark on list for material thats not possible to load
-                log.info("material is not loaded on any vehicle " + material.toString());
+                notLoadedMaterials.add(material);
+                log.info("material is not loaded on any vehicle: {}", material.toString());
             }
 
         }
-        return k;
+        return new AlgorithmPair(k, notLoadedMaterials);
     }
 
     private boolean checkWeightLimitForMaterial(Vehicle vehicle, Material material) {
