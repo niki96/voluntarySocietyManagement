@@ -13,7 +13,7 @@ public class MaterialService {
     @Autowired
     private MaterialRepository materialRepository;
 
-    public Material getMaterials(String name) {
+    public Material getMaterial(String name) {
         if (StringUtils.isEmpty(name)) {
             return null;
         }
@@ -21,25 +21,20 @@ public class MaterialService {
         return materialRepository.findByName(name);
     }
 
-    public Material getMaterials(Long id) {
+    public Material getMaterial(Long id) {
         if (id != null) {
             return materialRepository.findById(id).orElse(null);
         }
         return null;
     }
 
-    public void putMaterials(Material material) {
+    public void addMaterial(Material material) {
         materialRepository.save(material);
     }
 
-    public void createMaterials(Material material) {
-        materialRepository.save(material);
-    }
 
     public List<Material> getAllMaterials() {
 
         return materialRepository.findAll();
-
-
     }
 }

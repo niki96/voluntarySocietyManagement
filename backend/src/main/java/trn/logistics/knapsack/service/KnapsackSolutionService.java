@@ -28,7 +28,6 @@ public class KnapsackSolutionService {
         List<Vehicle> vehicles = vehicleRepository.findAllById(vehicleIds);
         List<Material> materials = materialRepository.findAllById(materialIds);
         List<Vehicle> loadedVehicles;
-        loadedVehicles = algorithm.knapsackDistribution(materials, vehicles);
 
         KnapsackSolution ks = new KnapsackSolution();
         ks.setSelectedVehicles(loadedVehicles);

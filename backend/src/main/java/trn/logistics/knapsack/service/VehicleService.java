@@ -13,12 +13,11 @@ public class VehicleService {
     @Autowired
     private VehicleRepository vehicleRepository;
 
-    public void putVehicles(Vehicle v1) {
-        vehicleRepository.save(v1);
-
+    public void addVehicle(Vehicle vehicle) {
+        vehicleRepository.save(vehicle);
     }
 
-    public Vehicle getVehicles(Long id) {
+    public Vehicle getVehicle(Long id) {
         if (id != null) {
             return vehicleRepository.findById(id).orElse(null);
         }

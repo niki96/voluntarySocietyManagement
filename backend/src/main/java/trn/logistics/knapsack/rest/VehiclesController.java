@@ -15,18 +15,19 @@ import static trn.logistics.knapsack.rest.VehiclesController.API;
 @RequestMapping(API)
 public class VehiclesController {
 
-    public static final String API = "/api/v1/vehicle";
+    public static final String API = "/api/v1/vehicles";
+    
     @Autowired
     private VehicleService vehicleService;
 
     @PutMapping
     @CrossOrigin
-    public void putVehicles(@RequestBody Vehicle vehicle) {
+    public void putVehicle(@RequestBody Vehicle vehicle) {
         vehicleService.putVehicles(vehicle);
     }
 
     @GetMapping("/{id}")
-    public Vehicle getVehicles(@PathVariable("id") Long id) {
+    public Vehicle getVehicle(@PathVariable("id") Long id) {
         return vehicleService.getVehicles(id);
     }
 
@@ -38,7 +39,7 @@ public class VehiclesController {
 
     @PostMapping
     @CrossOrigin
-    public void postVehicles(@RequestBody Vehicle vehicle) {
+    public void postVehicle(@RequestBody Vehicle vehicle) {
         vehicleService.putVehicles(vehicle);
     }
 }

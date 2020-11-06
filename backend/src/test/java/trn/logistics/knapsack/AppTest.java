@@ -18,10 +18,10 @@ class AppTest {
 
     @Test
     void testSimple() {
-        ArrayList<Material> materialList = new ArrayList<>();
+        List<Material> materialList = new ArrayList<>();
         materialList.add(new Material(1L, 20, 5, "Zargeskiste", MaterialType.BOX, null));
         Vehicle lkw = new Vehicle(1000, 3600);
-        ArrayList<Vehicle> vehicleList = new ArrayList<>();
+        List<Vehicle> vehicleList = new ArrayList<>();
         vehicleList.add(lkw);
         TheAlgorithm algorithm = new TheAlgorithm();
         algorithm.knapsackDistribution(materialList, vehicleList);

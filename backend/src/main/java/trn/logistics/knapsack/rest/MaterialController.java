@@ -15,7 +15,8 @@ import static trn.logistics.knapsack.rest.MaterialController.API;
 @RequestMapping(API)
 public class MaterialController {
 
-    public static final String API = "/api/v1/material";
+    public static final String API = "/api/v1/materials";
+    
     @Autowired
     private MaterialService materialService;
 
@@ -32,14 +33,14 @@ public class MaterialController {
     }
 
     @GetMapping("/{name}")
-    public Material getMaterials(@PathVariable("name") String name) {
+    public Material getMaterial(@PathVariable("name") String name) {
         log.info("Get material {} ", name);
 
         return materialService.getMaterials(name);
     }
 
     @GetMapping("/{id}")
-    public Material getMaterials(@PathVariable("id") Long id) {
+    public Material getMaterial(@PathVariable("id") Long id) {
         log.info("Get material {} ", id);
 
         return materialService.getMaterials(id);
@@ -52,7 +53,7 @@ public class MaterialController {
     }
 
     @DeleteMapping("/{name}")
-    public void deleteMaterials(@PathVariable("name") String name) {
+    public void deleteMaterial(@PathVariable("name") String name) {
         log.info("Deleting material {}", name);
     }
 
