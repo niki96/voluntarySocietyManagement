@@ -7,7 +7,7 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
-          <b-nav-item href="#/">Material</b-nav-item>
+          <b-nav-item href="#/">Materials</b-nav-item>
           <b-nav-item href="#/vehicle">Fahrzeuge</b-nav-item>
           <b-nav-item href="#/loading">Beladungen</b-nav-item>
         </b-navbar-nav>
@@ -20,7 +20,7 @@
               <em>User</em>
             </template>
             <b-dropdown-item href="#">Profile</b-dropdown-item>
-            <b-dropdown-item href="#">Sign Out</b-dropdown-item>
+            <b-dropdown-item href="#">Abmelden</b-dropdown-item>
           </b-nav-item-dropdown>
         </b-navbar-nav>
       </b-collapse>

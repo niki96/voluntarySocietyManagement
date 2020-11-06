@@ -5,7 +5,7 @@
     /> </b-button>
     <!-- Modal Component -->
     <b-modal id="modal2" v-model="modalVehicleShow" @ok="saveVehicle">
-      <div class="text-left" slot="modal-header">Add Vehicle</div>
+      <div class="text-left" slot="modal-header">Fahrzeug hinzufügen</div>
       <b-form id="VehicleForm" ref="vehicleForm">
         <b-form-group
           id="input-group-1"
@@ -16,7 +16,7 @@
             id="input-1"
             v-model="vehicle.name"
             required
-            placeholder="Enter name"
+            placeholder="Name eingeben"
           ></b-form-input>
         </b-form-group>
         <b-form-group
@@ -29,7 +29,7 @@
             v-model="vehicle.maxVolume"
             type="number"
             required
-            placeholder="Enter volume"
+            placeholder="Volumen eingeben"
           ></b-form-input>
         </b-form-group>
         <b-form-group
@@ -42,7 +42,7 @@
             v-model="vehicle.maxWeight"
             type="number"
             required
-            placeholder="Enter weight"
+            placeholder="Gewicht eingeben"
           ></b-form-input>
         </b-form-group>
       </b-form>

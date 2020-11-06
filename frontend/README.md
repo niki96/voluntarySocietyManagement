@@ -1,4 +1,4 @@
-# scout
+# voluntarySocietyManagement
 
 ## Project setup
 ```

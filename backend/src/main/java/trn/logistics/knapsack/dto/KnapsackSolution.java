@@ -22,7 +22,7 @@ public class KnapsackSolution {
 
     @OneToMany(targetEntity = Vehicle.class, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Vehicle> selectedVehicles;
-
+    @OneToMany(targetEntity = Material.class, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
     private List<Material> notLoadedMaterials;
 
 }

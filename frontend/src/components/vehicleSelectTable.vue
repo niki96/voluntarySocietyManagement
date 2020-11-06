@@ -9,7 +9,7 @@
             :indeterminate="indeterminateVehicle"
             @change="toggleAll"
           >
-            {{ allVehiclesSelected ? "Un-select All" : "Select All" }}
+            {{ allVehiclesSelected ? "Alle nicht auswählen" : "Alle auswählen" }}
           </b-form-checkbox>
         </template>
       </b-form-group>
@@ -33,7 +33,7 @@
         <template #table-busy>
           <div class="text-center text-danger my-2">
             <b-spinner class="align-middle"></b-spinner>
-            <strong>Loading...</strong>
+            <strong>Lade...</strong>
           </div>
         </template>
       </b-table>

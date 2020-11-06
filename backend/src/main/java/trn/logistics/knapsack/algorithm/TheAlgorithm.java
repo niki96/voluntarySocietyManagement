@@ -2,6 +2,7 @@ package trn.logistics.knapsack.algorithm;
 
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 import trn.logistics.knapsack.dto.AlgorithmPair;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.Vehicle;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Slf4j
 @NoArgsConstructor
+@Component
 public class TheAlgorithm {
 
     public AlgorithmPair knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {

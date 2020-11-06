@@ -5,7 +5,7 @@
     /> </b-button>
     <!-- Modal Component -->
     <b-modal id="modal1" v-model="modalShow" @ok="saveMaterial">
-      <div class="text-left" slot="modal-header">Add Material</div>
+      <div class="text-left" slot="modal-header">Material hinzufügen</div>
       <b-form id="materialForm" ref="materialForm">
         <b-form-group
           id="input-group-1"
@@ -17,7 +17,7 @@
             v-model="material.name"
             
             required
-            placeholder="Enter name"
+            placeholder="Name eingeben"
           ></b-form-input>
         </b-form-group>
         <b-form-group
@@ -30,7 +30,7 @@
             v-model="material.volume"
             type="number"
             required
-            placeholder="Enter volume"
+            placeholder="Volumen eingeben"
           ></b-form-input>
         </b-form-group>
         <b-form-group
@@ -43,7 +43,7 @@
             v-model="material.weight"
             type="number"
             required
-            placeholder="Enter weight"
+            placeholder="Gewicht eingeben"
           ></b-form-input>
         </b-form-group>
       </b-form>
