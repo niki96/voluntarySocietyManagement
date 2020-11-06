@@ -28,6 +28,7 @@ public class TheAlgorithm {
                 } else {
                     isAdded = false;
                 }
+                break;
             }
             if (!isAdded) {
                 // mark on list for material thats not possible to load
