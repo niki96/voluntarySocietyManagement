@@ -37,11 +37,13 @@ public class KnapsackSolutionService {
         List<Vehicle> vehicles = vehicleRepository.findAllById(vehicleIds);
         List<Material> materials = materialRepository.findAllById(materialIds);
 
-        KnapsackSolution ks = new KnapsackSolution();
         AlgorithmPair pair = algorithm.knapsackDistribution(materials, vehicles);
-        ks.setSelectedVehicles(pair.getVehiclelist());
-        ks.setNotLoadedMaterials(pair.getMateriallist());
-        ks.setName(name);
+
+        KnapsackSolution ks = KnapsackSolution.builder()
+                                              .selectedVehicles(pair.getVehiclelist())
+                                              .notLoadedMaterials(pair.getMateriallist())
+                                              .name(name)
+                                              .build();
         knapsackSolutionRepository.save(ks);
 
         return ks;
