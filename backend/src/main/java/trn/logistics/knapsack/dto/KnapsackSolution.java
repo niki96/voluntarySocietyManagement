@@ -1,6 +1,7 @@
 package trn.logistics.knapsack.dto;
 
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -14,6 +15,7 @@ import java.util.List;
 @Entity
 @NoArgsConstructor
 @Setter
+@Builder
 public class KnapsackSolution {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

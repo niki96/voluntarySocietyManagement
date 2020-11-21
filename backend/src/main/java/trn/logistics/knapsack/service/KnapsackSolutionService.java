@@ -62,10 +62,10 @@ public class KnapsackSolutionService {
     }
 
     private PDDocument createPdfFromKnapsack(KnapsackSolution kns) {
-        PDPage myPage = new PDPage(PDRectangle.A4);
+
         PDDocument mainDocument = new PDDocument();
         for (Vehicle vehicle : kns.getSelectedVehicles()) {
-
+            PDPage myPage = new PDPage(PDRectangle.A4);
             //TODO add VEHICLE details to PDF
             //TODO Change Table to table with header
             try {
@@ -94,11 +94,10 @@ public class KnapsackSolutionService {
         // we want table across whole page width (subtracted by left and right margin ofcourse)
         float tableWidth = myPage.getMediaBox().getWidth() - (2 * margin);
 
-        boolean drawContent = true;
+
         float yStart = yStartNewPage;
         float bottomMargin = 70;
-        // y position is your coordinate of top left corner of the table
-        float yPosition = 550;
+
         return new BaseTable(yStart, yStartNewPage, bottomMargin, tableWidth, margin, doc, myPage, true, true);
     }
 }

@@ -49,7 +49,7 @@ public class Vehicle implements Comparable<Vehicle> {
 
     public void printLoadingList() {
         for (Material k : this.containedElements) {
-            log.info(k.toString());
+            log.info("Material:{}", k);
         }
     }
 
@@ -71,7 +71,7 @@ public class Vehicle implements Comparable<Vehicle> {
     }
 
     public List<List> getContainedElementsListForPDF() {
-        List<List> result = new ArrayList<List>();
+        List<List> result = new ArrayList<>();
         for (Material element : this.containedElements) {
             result.add(element.getMaterialAsList());
         }

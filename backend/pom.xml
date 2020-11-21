@@ -19,7 +19,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
-
+        <dhorions.version>1.6</dhorions.version>
         <lombok.version>1.18.12</lombok.version>
     </properties>
 
@@ -41,7 +41,7 @@
         <dependency>
             <groupId>com.github.dhorions</groupId>
             <artifactId>boxable</artifactId>
-            <version>1.6</version>
+            <version>${dhorions.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -52,8 +51,13 @@ public class Material implements Comparable<Material> {
 		return res;
 	}
 
+	/**
+	 * method to get Material Attributes as list for creating PDF table
+	 *
+	 * @return List of Attributes
+	 */
 	public List<String> getMaterialAsList() {
-		return new ArrayList<>(Arrays.asList(name, type.toString(), Integer.toString(volume), Integer.toString(weight)));
+		return Arrays.asList(name, type.toString(), Integer.toString(volume), Integer.toString(weight));
 
 	}
 }
