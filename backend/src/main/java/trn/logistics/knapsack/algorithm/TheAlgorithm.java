@@ -29,7 +29,7 @@ public class TheAlgorithm {
             for (Vehicle vehicle : k) {
                 if (vehicle.allowedMaterialType(material.getType()) && checkVolumeLimitForMaterial(vehicle, material) && checkWeightLimitForMaterial(vehicle, material)) {
                     vehicle.getContainedElements().add(material);
-                    log.info("material is added to: {} | material: {}", vehicle.toString(), material.toString());
+                    log.info("material {} is added to vehicle: {}", material, vehicle);
                     isAdded = true;
                     break;
                 } else {
@@ -40,7 +40,7 @@ public class TheAlgorithm {
             if (!isAdded) {
                 // mark on list for material thats not possible to load
                 notLoadedMaterials.add(material);
-                log.info("material is not loaded on any vehicle: {}", material.toString());
+                log.info("material is not loaded on any vehicle: {}", material);
             }
 
         }

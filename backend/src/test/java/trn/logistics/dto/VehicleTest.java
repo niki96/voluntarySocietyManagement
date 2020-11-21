@@ -35,13 +35,13 @@ public class VehicleTest {
     @Test
     void actualVolumeAfterMaterialAdded() {
 
-        this.vehicle.addElementToKnapsack(new Material(1L, 5, 5, "Stangen", MaterialType.UNKNOWN, new Vehicle()));
+        this.vehicle.addElementToKnapsack(new Material(1L, 5, 5, "Stangen", MaterialType.UNKNOWN, null));
         assertEquals(5, this.vehicle.getActualVolume());
     }
 
     @Test
     void actualWeightAfterMaterialAdded() {
-        this.vehicle.addElementToKnapsack(new Material(1L, 5, 5, "Stangen", MaterialType.UNKNOWN, new Vehicle()));
+        this.vehicle.addElementToKnapsack(new Material(1L, 5, 5, "Stangen", MaterialType.UNKNOWN, null));
         assertEquals(5, this.vehicle.getActualWeight());
     }
 }
