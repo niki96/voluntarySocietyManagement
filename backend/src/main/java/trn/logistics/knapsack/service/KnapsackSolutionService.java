@@ -48,6 +48,7 @@ public class KnapsackSolutionService {
     }
 
     public List<KnapsackSolution> loadKnapsackSolutions() {
+        //TODO add null handling
         return knapsackSolutionRepository.findAll();
     }
 

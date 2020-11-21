@@ -18,16 +18,16 @@ import java.util.List;
 public class TheAlgorithm {
 
     public AlgorithmPair knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
-        List<Material> kEs = new ArrayList<>(materialCollection);
-        List<Vehicle> k = new ArrayList<>(vehicleCollection);
+        List<Material> knapsackElements = new ArrayList<>(materialCollection);
+        List<Vehicle> knapsack = new ArrayList<>(vehicleCollection);
         List<Material> notLoadedMaterials = new ArrayList<>();
-        Collections.sort(kEs);
+        Collections.sort(knapsackElements);
         //TODO Due to the type of the Element it could be possible that an element is not allowed to put on the Knapsack
 
-        for (Material material : kEs) {
+        for (Material material : knapsackElements) {
             boolean isAdded = false;
-            for (Vehicle vehicle : k) {
-                if (vehicle.allowedMaterialType(material.getType()) && checkVolumeLimitForMaterial(vehicle, material) && checkWeightLimitForMaterial(vehicle, material)) {
+            for (Vehicle vehicle : knapsack) {
+                if (vehicle.allowedMaterialType(material.getType()) && doesMaterialFitByVolume(vehicle, material) && doesMaterialFitByWeight(vehicle, material)) {
                     vehicle.getContainedElements().add(material);
                     log.info("material {} is added to vehicle: {}", material, vehicle);
                     isAdded = true;
@@ -44,14 +44,14 @@ public class TheAlgorithm {
             }
 
         }
-        return new AlgorithmPair(k, notLoadedMaterials);
+        return new AlgorithmPair(knapsack, notLoadedMaterials);
     }
 
-    private boolean checkWeightLimitForMaterial(Vehicle vehicle, Material material) {
+    private boolean doesMaterialFitByWeight(Vehicle vehicle, Material material) {
         return vehicle.getActualWeight() + material.getWeight() <= vehicle.getMaxWeight();
     }
 
-    private boolean checkVolumeLimitForMaterial(Vehicle vehicle, Material material) {
+    private boolean doesMaterialFitByVolume(Vehicle vehicle, Material material) {
         return vehicle.getActualVolume() + material.getVolume() <= vehicle.getMaxVolume();
     }
 

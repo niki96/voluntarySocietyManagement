@@ -21,8 +21,9 @@ public class VehiclesController {
     private VehicleService vehicleService;
 
     @PutMapping
+    @PostMapping
     @CrossOrigin
-    public void putVehicle(@RequestBody Vehicle vehicle) {
+    public void addVehicle(@RequestBody Vehicle vehicle) {
         vehicleService.addVehicle(vehicle);
     }
 
@@ -37,9 +38,5 @@ public class VehiclesController {
         return vehicleService.getVehicles();
     }
 
-    @PostMapping
-    @CrossOrigin
-    public void postVehicle(@RequestBody Vehicle vehicle) {
-        vehicleService.addVehicle(vehicle);
-    }
+
 }
