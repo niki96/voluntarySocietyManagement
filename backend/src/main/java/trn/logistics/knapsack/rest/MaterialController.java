@@ -22,13 +22,13 @@ public class MaterialController {
 
     @CrossOrigin
     @PutMapping
-    public void updateMaterials(@RequestBody Material material) {
+    public void updateMaterial(@RequestBody Material material) {
         materialService.addMaterial(material);
     }
 
     @CrossOrigin
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public void addMaterials(@RequestBody Material material) {
+    public void addMaterial(@RequestBody Material material) {
         materialService.addMaterial(material);
     }
 
