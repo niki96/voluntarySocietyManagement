@@ -49,7 +49,7 @@ public class Vehicle implements Comparable<Vehicle> {
 
     public void printLoadingList() {
         for (Material k : this.containedElements) {
-            log.info("Position 1: " + k.toString());
+            log.info(k.toString());
         }
     }
 
