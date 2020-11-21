@@ -27,7 +27,7 @@ public class MaterialController {
     }
 
     @CrossOrigin
-    @PostMapping(consumes = "application/json", produces = "application/json")
+    @PostMapping()
     public void addMaterial(@RequestBody Material material) {
         materialService.addMaterial(material);
     }

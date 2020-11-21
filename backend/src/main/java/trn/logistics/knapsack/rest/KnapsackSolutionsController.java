@@ -43,15 +43,9 @@ public class KnapsackSolutionsController {
         return knapsackSolutionService.loadKnapsackSolutions();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_PDF)
     @CrossOrigin
-    public ResponseEntity<byte[]> getKnapsackSolutionAsPdf(@PathVariable("id") Long id) {
-        byte[] contents = knapsackSolutionService.createAndLoadKnapsackSolutionPdf(id);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_PDF);
-        //TODO fix this with good name headers.setContentDispositionFormData("", "LoadingList.pdf");
-        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
-        return new ResponseEntity<>(contents, headers, HttpStatus.OK);
-
+    public @ResponseBody byte[] getKnapsackSolutionAsPdf(@PathVariable("id") Long id) {
+        return knapsackSolutionService.createAndLoadKnapsackSolutionPdf(id);
     }
 }
