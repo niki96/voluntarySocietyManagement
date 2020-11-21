@@ -72,4 +72,12 @@ public class Vehicle implements Comparable<Vehicle> {
         return res;
     }
 
+    public List<List> getContainedElementsListForPDF() {
+        List<List> result = new ArrayList<List>();
+        for (Material element : this.containedElements) {
+            result.add(element.getMaterialAsList());
+        }
+        return result;
+    }
+
 }

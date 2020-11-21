@@ -7,6 +7,9 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A specific implementation for scouting material of the KnapsackElement
@@ -47,5 +50,10 @@ public class Material implements Comparable<Material> {
 			res = 1;
 		}
 		return res;
+	}
+
+	public List<String> getMaterialAsList() {
+		return new ArrayList<>(Arrays.asList(name, type.toString(), Integer.toString(volume), Integer.toString(weight)));
+
 	}
 }

@@ -2,6 +2,10 @@ package trn.logistics.knapsack.rest;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import trn.logistics.knapsack.dto.KnapsackSolution;
 import trn.logistics.knapsack.dto.SolutionRequest;
@@ -33,10 +37,21 @@ public class KnapsackSolutionsController {
         return result.getId();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping()
     @CrossOrigin
-    public KnapsackSolution getKnapsackSolutions(@PathVariable("id") Long id) {
-        return knapsackSolutionService.loadKnapsackSolutions(id);
+    public List<KnapsackSolution> getKnapsackSolutions() {
+        return knapsackSolutionService.loadKnapsackSolutions();
     }
 
+    @GetMapping("/{id}")
+    @CrossOrigin
+    public ResponseEntity<byte[]> getKnapsackSolutionAsPdf(@PathVariable("id") Long id) {
+        byte[] contents = knapsackSolutionService.createAndLoadKnapsackSolutionPdf(id);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_PDF);
+        //TODO fix this with good name headers.setContentDispositionFormData("", "LoadingList.pdf");
+        headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
+        return new ResponseEntity<>(contents, headers, HttpStatus.OK);
+
+    }
 }
