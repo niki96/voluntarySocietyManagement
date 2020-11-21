@@ -28,7 +28,7 @@ public class KnapsackSolutionsController {
 
     @PostMapping
     @CrossOrigin
-    public Long createKnapsackSolutions(@RequestBody SolutionRequest requestObject) {
+    public Long createKnapsackSolution(@RequestBody SolutionRequest request) {
         //TODO Handel with Jakson that Attributes of requestObject are Not null
         List<Long> materialList = new ArrayList<>(requestObject.getMaterialIdCollection());
         List<Long> vehicleList = new ArrayList<>(requestObject.getVehicleIdCollection());
