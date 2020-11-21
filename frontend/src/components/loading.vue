@@ -1,9 +1,9 @@
 <template>
-  <div >
+  <div>
     <b-card>
       <b-button class="btn btn-success" @click="createLoading()">
-      <font-awesome-icon icon="plus-square"
-    /> </b-button>
+        <font-awesome-icon icon="plus-square" />
+      </b-button>
       <b-table
         :sticky-header="stickyHeader"
         :fields="fields"
@@ -19,6 +19,9 @@
             <strong>Lade...</strong>
           </div>
         </template>
+        <template #cell(pdf)="data">
+          <b-button @click="getLoadingPdf(data.item)"> </b-button>
+        </template>
       </b-table>
       <b-button @click="reload()">
         <font-awesome-icon icon="sync" />
@@ -28,11 +31,8 @@
 </template>
 
 <script>
-
 export default {
-  components: {
-
-  },
+  components: {},
   data: function () {
     return {
       loadings: [],
@@ -40,7 +40,7 @@ export default {
       fields: [
         { key: "id", label: "ID" },
         { key: "name", label: "Name" },
-        
+        { key: "pdf", label: "" },
       ],
       stickyHeader: true,
       url: "http://localhost:8080/api/v1/",
@@ -62,9 +62,27 @@ export default {
       this.loadings = [];
       this.loadLoadings();
     },
-    createLoading(){
-      this.$router.push({name:'loadingForm'})
-    }
+    createLoading() {
+      this.$router.push({ name: "loadingForm" });
+    },
+    getLoadingPdf(loading) {
+      console.log(loading);
+      this.axios("http://localhost:8080/api/v1/knapsackSolutions/" + loading.id, {
+        method: "GET",
+        responseType: "blob",
+      })
+        .then((response) => {
+          //Create a Blob from the PDF Stream
+          const file = new Blob([response.data], { type: "application/pdf" });
+          //Build a URL from the file
+          const fileURL = URL.createObjectURL(file);
+          //Open the URL on new Window
+          window.open(fileURL);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
   created: function () {
     this.loadLoadings();
