@@ -8,6 +8,7 @@ import trn.logistics.knapsack.dto.KnapsackSolution;
 import trn.logistics.knapsack.dto.SolutionRequest;
 import trn.logistics.knapsack.service.KnapsackSolutionService;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,9 +28,9 @@ public class KnapsackSolutionsController {
     @CrossOrigin
     public Long createKnapsackSolution(@RequestBody SolutionRequest request) {
         //TODO Handel with Jakson that Attributes of requestObject are Not null
-        List<Long> materialList = new ArrayList<>(request.getMaterialIdCollection());
-        List<Long> vehicleList = new ArrayList<>(request.getVehicleIdCollection());
-        KnapsackSolution result = knapsackSolutionService.createKnapsackSolutions(vehicleList, materialList, requestObject.getName());
+        List<Long> materialList = new ArrayList<>(request.getMaterialIds());
+        List<Long> vehicleList = new ArrayList<>(request.getVehicleIds());
+        KnapsackSolution result = knapsackSolutionService.createKnapsackSolutions(vehicleList, materialList, request.getName());
 
         return result.getId();
     }
@@ -40,9 +41,10 @@ public class KnapsackSolutionsController {
         return knapsackSolutionService.loadKnapsackSolutions();
     }
 
-    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_PDF)
+    @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_PDF_VALUE)
     @CrossOrigin
-    public @ResponseBody byte[] getKnapsackSolutionAsPdf(@PathVariable("id") Long id) {
+    public @ResponseBody
+    byte[] getKnapsackSolutionAsPdf(@PathVariable("id") Long id) throws IOException {
         return knapsackSolutionService.createAndLoadKnapsackSolutionPdf(id);
     }
 }
