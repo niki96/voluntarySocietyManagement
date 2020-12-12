@@ -21,5 +21,8 @@
     "save": "Speichern",
     "addMaterial": "Material hinzufügen",
     "addVehicle": "Fahrzeug hinzufügen"
+  },
+  "table": {
+    "load": "Lade ..."
   }
 }
