@@ -5,7 +5,7 @@
     /> </b-button>
     <!-- Modal Component -->
     <b-modal id="modal1" v-model="modalShow" @ok="saveMaterial">
-      <div class="text-left" slot="modal-header">Material hinzufügen</div>
+      <div class="text-left" slot="modal-header">{{$t("form.addMaterial")}}</div>
       <b-form id="materialForm" ref="materialForm">
         <b-form-group
           id="input-group-1"
@@ -50,7 +50,7 @@
       <div class="text-left">{{responsemsg}}</div>
       <div slot="modal-footer" class="">
         
-        <button class="btn btn-success" @click="saveMaterial()">Save</button>
+        <button class="btn btn-success" @click="saveMaterial()">{{$t("forms.save")}}</button>
       </div>
     </b-modal>
   </div>
@@ -75,7 +75,7 @@ export default {
       console.log("Save Material Input");
       this.axios
         .post(
-          "http://localhost:8080/api/v1/material",
+          process.env.VUE_APP_PATH+"material",
           JSON.stringify(this.material),
           {
             headers: {

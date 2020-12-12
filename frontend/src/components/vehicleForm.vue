@@ -5,7 +5,7 @@
     /> </b-button>
     <!-- Modal Component -->
     <b-modal id="modal2" v-model="modalVehicleShow" @ok="saveVehicle">
-      <div class="text-left" slot="modal-header">Fahrzeug hinzufügen</div>
+      <div class="text-left" slot="modal-header">{{$t("forms.addVehicle")}}</div>
       <b-form id="VehicleForm" ref="vehicleForm">
         <b-form-group
           id="input-group-1"
@@ -49,7 +49,7 @@
       <div class="text-left">{{responsemsg}}</div>
       <div slot="modal-footer" class="">
         
-        <button class="btn btn-success" @click="saveVehicle()">Save</button>
+        <button class="btn btn-success" @click="saveVehicle()">{{$t("forms.save")}}</button>
       </div>
     </b-modal>
   </div>
@@ -74,7 +74,7 @@ export default {
       console.log("Save Material Input");
       this.axios
         .post(
-          "http://localhost:8080/api/v1/vehicle",
+          process.env.VUE_APP_PATH+"vehicle",
           JSON.stringify(this.vehicle),
           {
             headers: {

@@ -41,21 +41,20 @@ export default {
       vehicles: [],
       isBusy: false,
       fields: [
-        { key: "id", label: "ID" },
-        { key: "name", label: "Name" },
-        { key: "maxWeight", label: "Zuladungsgewicht (kg)" },
-        { key: "maxVolume", label: "Zuladungsvolumen (m^3)" },
+        { key: "id", label: this.$i18n.t("columns.id") },
+        { key: "name", label: this.$i18n.t("columns.name") },
+        { key: "maxWeight", label: this.$i18n.t("columns.additionalLoadingWeight") },
+        { key: "maxVolume", label: this.$i18n.t("columns.additionalLoadingVolume") },
         { key: "edit", label: "" },
       ],
-      stickyHeader: true,
-      url: "http://localhost:8080/api/v1/",
+      stickyHeader: true
     };
   },
   methods: {
     loadVehicles() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "vehicles", {
+        .get(process.env.VUE_APP_PATH + "vehicles", {
           responseType: "json",
         })
         .then((response) => {

@@ -41,21 +41,20 @@ export default {
       materials: [],
       isBusy: false,
       fields: [
-        { key: "id", label: "ID" },
-        { key: "name", label: "Name" },
-        { key: "weight", label: "Gewicht (kg)" },
-        { key: "volume", label: "Volumen (m^3)" },
+        { key: "id", label: this.$i18n.t("columns.id") },
+        { key: "name", label: this.$i18n.t("columns.name") },
+        { key: "weight", label: this.$i18n.t("columns.weight") },
+        { key: "volume", label: this.$i18n.t("columns.volume") },
         { key: "edit", label: "" },
       ],
-      stickyHeader: true,
-      url: "http://localhost:8080/api/v1/",
+      stickyHeader: true
     };
   },
   methods: {
     loadMaterials() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "materials", {
+        .get(process.env.VUE_APP_PATH + "materials", {
           responseType: "json",
         })
         .then((response) => {

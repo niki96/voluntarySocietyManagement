@@ -38,19 +38,18 @@ export default {
       loadings: [],
       isBusy: false,
       fields: [
-        { key: "id", label: "ID" },
-        { key: "name", label: "Name" },
+        { key: "id", label: this.$i18n.t("columns.id") },
+        { key: "name", label: this.$i18n.t("columns.name") },
         { key: "pdf", label: "" },
       ],
-      stickyHeader: true,
-      url: "http://localhost:8080/api/v1/",
+      stickyHeader: true
     };
   },
   methods: {
     loadLoadings() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "knapsackSolutions", {
+        .get(process.env.VUE_APP_PATH + "knapsackSolutions", {
           responseType: "json",
         })
         .then((response) => {
@@ -67,7 +66,7 @@ export default {
     },
     getLoadingPdf(loading) {
       console.log(loading);
-      this.axios("http://localhost:8080/api/v1/knapsackSolutions/" + loading.id, {
+      this.axios(process.env.VUE_APP_PATH + "knapsackSolutions/" + loading.id, {
         method: "GET",
         responseType: "blob",
       })

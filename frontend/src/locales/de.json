@@ -1,0 +1,25 @@
+{
+  "navigation": {
+    "vehicle": "Fahrzeug",
+    "material": "Material",
+    "loading": "Beladungen",
+    "profile": "Profil",
+    "user": "Benutzer",
+    "logoff": "Abmelden",
+    "title": "Scout"
+  },
+  "columns": {
+    "id": "id",
+    "name": "Name",
+    "weight": "Gewicht (kg)",
+    "volume": "Volumen (m^3)",
+    "additionalLoadingWeight": "Zuladungsgewicht (kg)",
+    "additionalLoadingVolume": "Zuladungsvolumen (m^3)"
+  },
+  "forms": {
+    "startCalculation": "Starte Berechnung",
+    "save": "Speichern",
+    "addMaterial": "Material hinzufügen",
+    "addVehicle": "Fahrzeug hinzufügen"
+  }
+}

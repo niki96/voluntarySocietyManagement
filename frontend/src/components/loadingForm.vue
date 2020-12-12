@@ -16,7 +16,7 @@
     ></materialSelectTable>
     <b-card>
       <b-button class="btn btn-success" @click="createLoading()">
-        Starte Berechnung
+        {{$t("forms.startCalculation")}}
       </b-button>
     </b-card>
   </div>
@@ -61,7 +61,7 @@ export default {
         reqestObj.vehicleIdCollection = vehicleIds;
         this.axios
           .post(
-            "http://localhost:8080/api/v1/knapsackSolutions",
+            process.env.VUE_APP_PATH+"knapsackSolutions",
             JSON.stringify(reqestObj),
             {
               headers: {

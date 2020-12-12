@@ -57,8 +57,7 @@ export default {
         { key: "maxWeight", label: "Zuladungsgewicht (kg)" },
         { key: "maxVolume", label: "Zuladungsvolumen (m^3)" }
       ],
-      stickyHeader: true,
-      url: "http://localhost:8080/api/v1/",
+      stickyHeader: true
     };
   },
   methods: {
@@ -68,7 +67,7 @@ export default {
     loadVehicles() {
       this.isBusy = true;
       this.$http
-        .get(this.url + "vehicles", {
+        .get(process.env.VUE_APP_PATH + "vehicles", {
           responseType: "json",
         })
         .then((response) => {

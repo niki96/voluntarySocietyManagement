@@ -67,7 +67,7 @@ export default {
     },
     loadMaterials() {
       this.$http
-        .get("http://localhost:8080/api/v1/materials", {
+        .get(process.env.VUE_APP_PATH+"materials", {
           responseType: "json",
         })
         .then((response) => {
