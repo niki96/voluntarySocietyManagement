@@ -9,6 +9,7 @@ import trn.logistics.knapsack.dto.MaterialType;
 import trn.logistics.knapsack.dto.Vehicle;
 import trn.logistics.knapsack.exporter.PdfExporter;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @SpringBootTest
 public class PdfExporterTest {
     @Test
-    void createPdfFromKnapsackTest() {
+    void createPdfFromKnapsackTest() throws IOException {
         KnapsackSolution kns = new KnapsackSolution();
         Vehicle v1 = new Vehicle(400, 3500);
         for (int i = 0; i < 5; i++) {
@@ -27,11 +28,12 @@ public class PdfExporterTest {
         kns.setSelectedVehicles(new ArrayList<>(Arrays.asList(v1)));
         PdfExporter p1 = new PdfExporter();
         PDDocument pdf = p1.createPdfFromKnapsack(kns);
+        pdf.save("test1pdf.pdf");
         assertNotEquals(0, pdf.getNumberOfPages());
     }
 
     @Test
-    void createPdfFromKnapsackMultiplePagesForOneVehicleTest() {
+    void createPdfFromKnapsackMultiplePagesForOneVehicleTest() throws IOException {
         KnapsackSolution kns = new KnapsackSolution();
         Vehicle v1 = new Vehicle(400, 3500);
         for (int i = 0; i < 100; i++) {
@@ -40,6 +42,7 @@ public class PdfExporterTest {
         kns.setSelectedVehicles(new ArrayList<>(Arrays.asList(v1)));
         PdfExporter p1 = new PdfExporter();
         PDDocument pdf = p1.createPdfFromKnapsack(kns);
+        pdf.save("test2pdf.pdf");
         assertNotEquals(0, pdf.getNumberOfPages());
         assertTrue(1 < pdf.getNumberOfPages());
     }

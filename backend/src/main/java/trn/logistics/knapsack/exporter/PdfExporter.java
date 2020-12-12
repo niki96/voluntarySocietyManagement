@@ -16,28 +16,24 @@ import java.io.IOException;
 @Slf4j
 public class PdfExporter {
 
-    public PDDocument createPdfFromKnapsack(KnapsackSolution kns) {
+    public PDDocument createPdfFromKnapsack(KnapsackSolution kns) throws IOException {
 
         PDDocument mainDocument = new PDDocument();
         for (Vehicle vehicle : kns.getSelectedVehicles()) {
             PDPage myPage = new PDPage(PDRectangle.A4);
             //TODO add VEHICLE details to PDF
             //TODO Change Table to table with header
-            try {
-                BaseTable dataTable = createBaseTable(myPage, mainDocument);
 
-                DataTable myTable = new DataTable(dataTable, myPage);
+            BaseTable dataTable = createBaseTable(myPage, mainDocument);
+
+            DataTable myTable = new DataTable(dataTable, myPage);
                 myTable.addListToTable(vehicle.getContainedElementsListForPDF(), DataTable.NOHEADER);
                 dataTable.draw();
-            } catch (IOException e) {
-                log.error(String.valueOf(e));
-            }
+
             mainDocument.addPage(myPage);
-            try {
-                mainDocument.save(kns.getName() + ".pdf");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+
+            mainDocument.save(kns.getName() + ".pdf");
+
         }
         return mainDocument;
     }
