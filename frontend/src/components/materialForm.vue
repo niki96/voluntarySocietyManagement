@@ -5,7 +5,7 @@
     /> </b-button>
     <!-- Modal Component -->
     <b-modal id="modal1" v-model="modalShow" @ok="saveMaterial">
-      <div class="text-left" slot="modal-header">{{$t("form.addMaterial")}}</div>
+      <div class="text-left" slot="modal-header">{{$t("forms.addMaterial")}}</div>
       <b-form id="materialForm" ref="materialForm">
         <b-form-group
           id="input-group-1"
