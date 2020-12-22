@@ -3,7 +3,7 @@
     <b-card>
       <b-form-group>
         <template #label>
-          <b>Choose your materials:</b><br />
+          <b>{{$t("table.selectMaterial")}}</b><br />
           <b-form-checkbox
             v-model="allMaterialsSelected"
             :indeterminate="indeterminateMaterial"
@@ -49,9 +49,9 @@ export default {
       isBusy: false,
       fields: [
         { key: "checked", label: "" },
-        { key: "name", label: "Name" },
-        { key: "weight", label: "Gewicht (kg)" },
-        { key: "volume", label: "Volumen (m^3)" },
+        { key: "name", label: this.$i18n.t("columns.name") },
+        { key: "weight", label: this.$i18n.t("columns.weight") },
+        { key: "volume", label: this.$i18n.t("columns.volume") },
         { key: "edit", label: "" },
       ],
       stickyHeader: true,

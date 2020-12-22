@@ -3,13 +3,13 @@
     <b-card>
       <b-form-group>
         <template #label>
-          <b>Choose your Vehicles:</b><br />
+          <b>{{$t("table.selectVehicles")}}</b><br />
           <b-form-checkbox
             v-model="allVehiclesSelected"
             :indeterminate="indeterminateVehicle"
             @change="toggleAll"
           >
-            {{ allVehiclesSelected ? "Alle nicht auswählen" : "Alle auswählen" }}
+            {{ allVehiclesSelected ? $t("table.unselectAll") : $t("table.selectAll")}}
           </b-form-checkbox>
         </template>
       </b-form-group>
@@ -53,9 +53,9 @@ export default {
       isBusy: false,
       fields: [
         { key: "checked", label: "" },
-        { key: "name", label: "Name" },
-        { key: "maxWeight", label: "Zuladungsgewicht (kg)" },
-        { key: "maxVolume", label: "Zuladungsvolumen (m^3)" }
+        { key: "name", label: this.$i18n.t("columns.name") },
+        { key: "maxWeight", label: this.$i18n.t("columns.additionalLoadingWeight") },
+        { key: "maxVolume", label: this.$i18n.t("columns.additionalLoadingVolume") }
       ],
       stickyHeader: true
     };

@@ -20,9 +20,15 @@
     "startCalculation": "Starte Berechnung",
     "save": "Speichern",
     "addMaterial": "Material hinzufügen",
-    "addVehicle": "Fahrzeug hinzufügen"
+    "addVehicle": "Fahrzeug hinzufügen",
+    "labelName": "{msg} Name",
+    "placeholderName": "Name eingeben"
   },
   "table": {
-    "load": "Lade ..."
+    "load": "Lade ...",
+    "selectMaterial": "Wähle dein Material",
+    "selectVehicles": "Wähle deine Fahrzeuge",
+    "selectAll": "Alle auswählen",
+    "unselectAll": "Nicht alle auswählen"
   }
 }

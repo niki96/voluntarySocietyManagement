@@ -9,19 +9,19 @@
       <b-form id="VehicleForm" ref="vehicleForm">
         <b-form-group
           id="input-group-1"
-          label="Fahrzeug Name"
+          :label="$t('forms.lableName', {msg:'Fahrzeug'})"
           label-for="input-1"
         >
           <b-form-input
             id="input-1"
             v-model="vehicle.name"
             required
-            placeholder="Name eingeben"
+            :placeholder="$t('forms.placeholderName')"
           ></b-form-input>
         </b-form-group>
         <b-form-group
           id="input-group-2"
-          label="Maximales Volumen (m^3)"
+          :label="$t('columns.additionalLoadingVolume')"
           label-for="input-2"
         >
           <b-form-input
@@ -34,7 +34,7 @@
         </b-form-group>
         <b-form-group
           id="input-group-3"
-          label="Maximale Zuladung (kg)"
+          :label="$t('columns.additionalLoadingWeight')"
           label-for="input-3"
         >
           <b-form-input

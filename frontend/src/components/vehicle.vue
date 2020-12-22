@@ -19,7 +19,7 @@
         <template #table-busy>
           <div class="text-center text-danger my-2">
             <b-spinner class="align-middle"></b-spinner>
-            <strong>Lade...</strong>
+            <strong>{{$t("table.load")}}</strong>
           </div>
         </template>
       </b-table>

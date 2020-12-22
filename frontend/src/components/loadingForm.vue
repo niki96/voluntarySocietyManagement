@@ -5,7 +5,7 @@
         id="input-1"
         v-model="name"
         required
-        placeholder="Name eingeben"
+        :placeholder="$t('forms.placeholderName')"
       ></b-input>
     </b-card>
     <vehicleSelectTable
