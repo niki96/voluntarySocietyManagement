@@ -3,7 +3,7 @@ package trn.logistics.knapsack.algorithm;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-import trn.logistics.knapsack.dto.AlgorithmPair;
+import trn.logistics.knapsack.dto.AlgorithmResult;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.Vehicle;
 
@@ -17,7 +17,7 @@ import java.util.List;
 @Component
 public class TheAlgorithm {
 
-    public AlgorithmPair knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
+    public AlgorithmResult knapsackDistribution(Collection<Material> materialCollection, Collection<Vehicle> vehicleCollection) {
         List<Material> knapsackElements = new ArrayList<>(materialCollection);
         List<Vehicle> knapsack = new ArrayList<>(vehicleCollection);
         List<Material> notLoadedMaterials = new ArrayList<>();
@@ -44,7 +44,7 @@ public class TheAlgorithm {
             }
 
         }
-        return new AlgorithmPair(knapsack, notLoadedMaterials);
+        return new AlgorithmResult(knapsack, notLoadedMaterials);
     }
 
     private boolean doesMaterialFitByWeight(Vehicle vehicle, Material material) {

@@ -7,10 +7,10 @@ import java.util.List;
 
 @AllArgsConstructor
 @Getter
-/**
-* This is a helper class to return the result of the knapsack algorithm
-*/
-public class AlgorithmPair {
+/*
+  This is a helper class to return the result of the knapsack algorithm
+ */
+public class AlgorithmResult {
     private List<Vehicle> vehiclelist;
     private List<Material> materiallist;
 

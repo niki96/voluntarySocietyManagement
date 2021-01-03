@@ -3,7 +3,7 @@ package trn.logistics.knapsack;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import trn.logistics.knapsack.algorithm.TheAlgorithm;
-import trn.logistics.knapsack.dto.AlgorithmPair;
+import trn.logistics.knapsack.dto.AlgorithmResult;
 import trn.logistics.knapsack.dto.Material;
 import trn.logistics.knapsack.dto.MaterialType;
 import trn.logistics.knapsack.dto.Vehicle;
@@ -28,7 +28,7 @@ class AppTest {
         List<Vehicle> vehicleList = new ArrayList<>();
         vehicleList.add(lkw);
         TheAlgorithm algorithm = new TheAlgorithm();
-        AlgorithmPair pair = algorithm.knapsackDistribution(materialList, vehicleList);
+        AlgorithmResult pair = algorithm.knapsackDistribution(materialList, vehicleList);
         lkw.printLoadingList();
         assertEquals(0, pair.getMateriallist().size());
         assertEquals(1, pair.getVehiclelist().get(1).getContainedElements().size());
