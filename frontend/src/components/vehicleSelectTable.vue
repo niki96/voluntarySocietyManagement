@@ -80,17 +80,17 @@ export default {
     selectedMaterials(newVal) {
         console.log(this.selectedVehicles)
         this.$emit("selectVehicle", this.selectedVehicles);
-      // Handle changes in individual flavour checkboxes
-      if (newVal.length === 0) {
-        this.indeterminateMaterial = false;
-        this.allMaterialsSelected = false;
-      } else if (newVal.length === this.vehicles.length) {
-        this.indeterminateMaterial = false;
-        this.allMaterialsSelected = true;
-      } else {
-        this.indeterminateMaterial = true;
-        this.allMaterialsSelected = false;
-      }
+        // Handle changes in individual flavour checkboxes
+        if (newVal.length === 0) {
+          this.indeterminateMaterial = false;
+          this.allMaterialsSelected = false;
+        } else if (newVal.length === this.vehicles.length) {
+          this.indeterminateMaterial = false;
+          this.allMaterialsSelected = true;
+        } else {
+          this.indeterminateMaterial = true;
+          this.allMaterialsSelected = false;
+        }
     },
   },
   created: function () {

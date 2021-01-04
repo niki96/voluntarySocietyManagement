@@ -29,7 +29,7 @@
             v-model="vehicle.maxVolume"
             type="number"
             required
-            placeholder="Volumen eingeben"
+           :placeholder="$t('forms.placeholderVolume')"
           ></b-form-input>
         </b-form-group>
         <b-form-group
@@ -42,7 +42,7 @@
             v-model="vehicle.maxWeight"
             type="number"
             required
-            placeholder="Gewicht eingeben"
+            :placeholder="$t('forms.placeholderWeight')"
           ></b-form-input>
         </b-form-group>
       </b-form>
@@ -85,11 +85,11 @@ export default {
         )
         .then(function (response) {
           console.log(response);
-          this.responsemsg="Successfully created";
+          this.responsemsg=this.$i18n.t("forms.responseSuccess");
         }.bind(this))
         .catch(function (error) {
           console.log(error);
-          this.responsemsg="Errors during Creation created";
+          this.responsemsg=this.$i18n.t("forms.responseError");
         });
    
     },

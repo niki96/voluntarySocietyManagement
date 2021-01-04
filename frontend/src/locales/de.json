@@ -22,7 +22,11 @@
     "addMaterial": "Material hinzufügen",
     "addVehicle": "Fahrzeug hinzufügen",
     "labelName": "{msg} Name",
-    "placeholderName": "Name eingeben"
+    "placeholderName": "Name eingeben",
+    "placeholderVolume": "Volumen eingeben",
+    "placeholderWeight": "Gewicht eingeben",
+    "responseSuccess": "Erfolgreich erzeugt",
+    "responseError": "Fehler während der erzeugung"
   },
   "table": {
     "load": "Lade ...",

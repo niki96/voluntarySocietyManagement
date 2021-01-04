@@ -9,7 +9,7 @@
             :indeterminate="indeterminateMaterial"
             @change="toggleAll"
           >
-            {{ allMaterialsSelected ? "Alle nicht auswählen" : "Alle auswählen" }}
+            {{ allMaterialsSelected ?$t("table.unselectAll") :$t("table.selectAll") }}
           </b-form-checkbox>
         </template>
       </b-form-group>
@@ -79,17 +79,17 @@ export default {
     selectedMaterials(newVal) {
         console.log(this.selectedMaterials)
         this.$emit("selectMaterial", this.selectedMaterials);
-      // Handle changes in individual flavour checkboxes
-      if (newVal.length === 0) {
-        this.indeterminateMaterial = false;
-        this.allMaterialsSelected = false;
-      } else if (newVal.length === this.material.length) {
-        this.indeterminateMaterial = false;
-        this.allMaterialsSelected = true;
-      } else {
-        this.indeterminateMaterial = true;
-        this.allMaterialsSelected = false;
-      }
+         // Handle changes in individual flavour checkboxes
+        if (newVal.length === 0) {
+          this.indeterminateMaterial = false;
+          this.allMaterialsSelected = false;
+        } else if (newVal.length === this.material.length) {
+          this.indeterminateMaterial = false;
+          this.allMaterialsSelected = true;
+        } else {
+          this.indeterminateMaterial = true;
+          this.allMaterialsSelected = false;
+        }
     },
   },
   created: function () {
